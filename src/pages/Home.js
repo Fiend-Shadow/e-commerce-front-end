@@ -4,6 +4,11 @@ function Home() {
   return (
     <div> 
       <h1>Home Page</h1>
+      {/* <CategoryBoxLink1 />/
+      <CategoryBoxLink2 />/
+      <CategoryBoxLink3 />/
+      <CategoryBoxLink4 />/ */}
+      
     </div>
   )
 }
