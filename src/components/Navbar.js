@@ -36,9 +36,13 @@ class Navbar extends Component {
               {" "}
               <button className="navbar-button">Sign Up</button>{" "}
             </Link>
-
           </>
+
         )}
+
+        <Link to={"/myCartPage"} className="nav-btn">
+          <h4>MyCartPage</h4>
+        </Link>
       </nav>
     );
   }
