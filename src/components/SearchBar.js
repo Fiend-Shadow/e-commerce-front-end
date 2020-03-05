@@ -1,14 +1,23 @@
 import React, { Component } from "react";
 
+
 class SearchBar extends React.Component {
   constructor(props) {
-    super(props);    
-    this.state = {
-              value: ""
-    };
+    super(props);
+    this.state = {value: ""};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
+  }
+
+    searchProduct = searchValue =>{
+    const filterProductList = this.state.productsList.filter(element => {
+      let lowProduct = element.name.toLowerCase();
+      let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
+      return lowProductIncludes;
+    });
+    console.log("filterProductlist", filterProductList);
+    this.setState({filterProductList: filterProductList});
   }
 
   handleChange(event) {
@@ -16,12 +25,12 @@ class SearchBar extends React.Component {
   }
 
   handleSubmitSearch(event) {
-    let {value, name} = e.target;
+    alert('something was submitted: ' + this.state.value);
+    console.log('something was submitted: ');
+    let {value, name} = this.target;
     this.setState({[name]: value});
     this.props.searchProduct(value);
-
-    // alert('something was submitted: ' + this.state.value);
-    // console.log('something was submitted: ');
+    
     event.preventDefault();
   }
 
@@ -32,7 +41,7 @@ class SearchBar extends React.Component {
           SearchBar:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Search" onClick={this.handleSubmitSearch}/>
+        <input type="submit" value="Search" />
       </form>
     );
   }

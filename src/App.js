@@ -44,7 +44,6 @@ class App extends Component {
   //   console.log('update');    
   // }
 
-
   render() {
     return (
       <div className="container">
