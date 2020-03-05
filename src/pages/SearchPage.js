@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import SearchBar from "./components/SearchBar";
 
 function SearchPage() {
   return (
-    <div> 
+    <div>
+      <SearchBar />
       <h1>Search Results Page</h1>
       <ul>
         <li>Product 1</li>

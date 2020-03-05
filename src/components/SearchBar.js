@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: ""};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
@@ -14,9 +14,12 @@ class SearchBar extends React.Component {
   }
 
   handleSubmitSearch(event) {
-    alert('something was submitted: ' + this.state.value);
-    console.log('something was submitted: ');
-    
+    let {value, name} = e.target;
+    this.setState({[name]: value});
+    this.props.searchProduct(value);
+
+    // alert('something was submitted: ' + this.state.value);
+    // console.log('something was submitted: ');
     event.preventDefault();
   }
 
@@ -27,7 +30,7 @@ class SearchBar extends React.Component {
           SearchBar:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" onClick={this.handleSubmitSearch}/>
       </form>
     );
   }

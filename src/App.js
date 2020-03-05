@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios";
+import products from "./products.json";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -22,9 +23,9 @@ import ProductDetails from "./pages/ProductDetails";
 
 
 class App extends Component {
-  // state = {
-  //   products: []
-  // };
+  state = {
+    products: []
+  };
 
   // componentDidMount() {
   //   console.log('did mount something');    
@@ -47,8 +48,7 @@ class App extends Component {
     return (
       <div className="container">
         <Navbar />
-        <SearchBar />
-
+        
         <Switch>
           <Route exact path="/" component={Home} />
 
