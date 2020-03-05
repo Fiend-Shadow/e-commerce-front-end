@@ -20,7 +20,7 @@ button.navbar-button {
   border-radius: 3px;
 }
 
-#home-btn {
+.nav-btn {
   color: white;
   text-decoration: none;
 }

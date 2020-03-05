@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -5,14 +6,14 @@ class SearchBar extends React.Component {
     this.state = {value: ''};
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
   }
 
   handleChange(event) {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleSubmitSearch(event) {
     alert('something was submitted: ' + this.state.value);
     console.log('something was submitted: ');
     
@@ -21,13 +22,15 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmitSearch}>
         <label>
-          Name:
+          SearchBar:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Search" />
       </form>
     );
   }
 }
+
+export default SearchBar;

@@ -8,9 +8,18 @@ class Navbar extends Component {
 
     return (
       <nav className="navbar">
-        <Link to={"/"} id="home-btn">
+        <Link to={"/"} className="nav-btn">
           <h4>Home</h4>
         </Link>
+
+        <Link to={"/ProfilePage"}className="nav-btn">
+          <h4>Profile</h4>
+        </Link>
+
+        <Link to={"/SearchPage"} className="nav-btn">
+          <h4>Categories</h4>
+        </Link>
+        
         {isLoggedIn ? (
           <>
             <p>username: {user.username}</p>
