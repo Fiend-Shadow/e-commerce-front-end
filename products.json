@@ -1,4 +1,3 @@
-// electronics, beauty, sports, house
 [
   {
     "productName": "Electronics-Product-1",
@@ -95,8 +94,5 @@
     "img_url": "https://images-na.ssl-images-amazon.com/images/I/813tMa1%2B4cL._SX466_.jpg",
     "category": "house",
     "quantity": 5 
-  },
-
-
-
+  }
 ]

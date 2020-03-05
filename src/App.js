@@ -24,7 +24,8 @@ import ProductDetails from "./pages/ProductDetails";
 
 class App extends Component {
   state = {
-    products: []
+    products: products,
+    filterProductList: products
   };
 
   // componentDidMount() {

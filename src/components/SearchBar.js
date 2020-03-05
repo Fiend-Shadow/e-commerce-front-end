@@ -2,8 +2,10 @@ import React, { Component } from "react";
 
 class SearchBar extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {value: ""};
+    super(props);    
+    this.state = {
+              value: ""
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
