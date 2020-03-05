@@ -12,11 +12,11 @@ class Navbar extends Component {
           <h4>Home</h4>
         </Link>
 
-        <Link to={"/ProfilePage"}className="nav-btn">
+        <Link to={"/profilePage"} className="nav-btn">
           <h4>Profile</h4>
         </Link>
 
-        <Link to={"/SearchPage"} className="nav-btn">
+        <Link to={"/searchPage"} className="nav-btn">
           <h4>Categories</h4>
         </Link>
         
@@ -36,6 +36,7 @@ class Navbar extends Component {
               {" "}
               <button className="navbar-button">Sign Up</button>{" "}
             </Link>
+
           </>
         )}
       </nav>

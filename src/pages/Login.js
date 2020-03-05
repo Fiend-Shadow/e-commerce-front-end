@@ -6,9 +6,9 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
-    this.props.login(username, password);
+    this.props.login(email, password);
   };
 
   handleChange = event => {
@@ -17,18 +17,18 @@ class Login extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
     return (
       <div>
         <h1>Login</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
+          <label>Email:</label>
           <input
-            type="text"
-            name="username"
-            value={username}
+            type="email"
+            name="email"
+            value={email}
             onChange={this.handleChange}
           />
 

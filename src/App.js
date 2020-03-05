@@ -14,7 +14,7 @@ import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
-
+import MyCartPage from "./pages/MyCartPage";
 
 
 // import products from './somefile.json';
@@ -56,8 +56,9 @@ class App extends Component {
           <AnonRoute exact path="/login" component={Login} />
           <AnonRoute exact path="/profilePage" component={ProfilePage} />
           <AnonRoute exact path="/searchPage" component={SearchPage} />
+          <AnonRoute exact path="/myCartPage" component={MyCartPage} />
 
-          <PrivateRoute exact path="/private" component={Private} />
+      M  <PrivateRoute exact path="/private" component={Private} />
         </Switch>
       </div>
     );

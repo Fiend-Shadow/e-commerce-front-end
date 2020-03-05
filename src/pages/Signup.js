@@ -7,9 +7,9 @@ class Signup extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
+    const { username, email, password } = this.state;
 
-    this.props.signup(username, password);
+    this.props.signup(username, email, password);
   };
 
   handleChange = event => {
@@ -18,7 +18,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, email, password } = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
@@ -31,6 +31,14 @@ class Signup extends Component {
             value={username}
             onChange={this.handleChange}
           />
+
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+          />          
 
           <label>Password:</label>
           <input
