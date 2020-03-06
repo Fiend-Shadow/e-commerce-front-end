@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import searchService from "./../lib/search-service";
 import Axios from "axios";
-
+import {Redirect} from "react-router-dom";
+import SearchPage from "./../pages/SearchPage";
 
 
 class SearchBar extends React.Component {
@@ -18,8 +19,7 @@ class SearchBar extends React.Component {
       let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
       return lowProductIncludes;
     });
-
-    console.log("filterProductlist", filterProductList);
+    
     this.setState({filterProductList: filterProductList});
   };
   
@@ -36,21 +36,21 @@ class SearchBar extends React.Component {
     event.preventDefault()
     // alert('something was submitted: ' + this.state.value);
     // console.log('something was submitted: ');
-
-    console.log('this.state.productName', this.state.productName)
+    
 
     // searchService
     // .productByName(this.state.productName)
     Axios.post("http://localhost:5000/product/searchPage" , {productName:this.state.productName}, {withCredentials: true})
     .then( result => {
-      console.log('result', result)
+     
+  return <SearchPage data={result} />
       //redirect to searchPage
       // with productName info
       // console.log(productName);
     })
     .catch(err => 
       console.log('An error for the search goes here')
-    )    
+    )
     
   };
 
