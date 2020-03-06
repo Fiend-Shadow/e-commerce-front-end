@@ -39,7 +39,7 @@ class TextareaAndSelectTagDemo extends Component {
         <input type="submit" value="Submit" />
       </form>
     )
-  }
-}
+  };
+
 
 export default TextareaAndSelectTagDemo;

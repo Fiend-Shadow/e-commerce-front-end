@@ -14,4 +14,4 @@ function Products(props) {
   )
 }
 
-export default Contacts
+export default Products

@@ -1,49 +1,69 @@
 import React, { Component } from "react";
+import searchService from "./../lib/search-service";
+import Axios from "axios";
+
 
 
 class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ""};
+    state = {
+      productName: ""
+    };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
-  }
-
+    // componentDidMount() {
+    // }
+    
     searchProduct = searchValue =>{
     const filterProductList = this.state.productsList.filter(element => {
       let lowProduct = element.name.toLowerCase();
       let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
       return lowProductIncludes;
     });
+
     console.log("filterProductlist", filterProductList);
     this.setState({filterProductList: filterProductList});
-  }
+  };
+  
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
+  //this works
+  handleChange = (event)=> {
+    const { name, value } = event.target;
 
-  handleSubmitSearch(event) {
-    alert('something was submitted: ' + this.state.value);
-    console.log('something was submitted: ');
-    let {value, name} = this.target;
-    this.setState({[name]: value});
-    this.props.searchProduct(value);
+    this.setState({[name]:value});
+  };
+
+
+  handleSubmitSearch = (event) => {
+    event.preventDefault()
+    // alert('something was submitted: ' + this.state.value);
+    // console.log('something was submitted: ');
+
+    console.log('this.state.productName', this.state.productName)
+
+    // searchService
+    // .productByName(this.state.productName)
+    Axios.post("http://localhost:5000/product/searchPage" , {productName:this.state.productName}, {withCredentials: true})
+    .then( result => {
+      console.log('result', result)
+      //redirect to searchPage
+      // with productName info
+      // console.log(productName);
+    })
+    .catch(err => 
+      console.log('An error for the search goes here')
+    )    
     
-    event.preventDefault();
-  }
+  };
 
-  render() {
+  render () {
     return (
       <form onSubmit={this.handleSubmitSearch}>
         <label>
           SearchBar:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" name = "productName" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Search" />
       </form>
-    );
+    )
   }
 }
 
