@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import searchService from "./../lib/search-service";
+import React from "react";
+
 import Axios from "axios";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -22,7 +23,6 @@ class SearchBar extends React.Component {
     console.log("filterProductlist", filterProductList);
     this.setState({filterProductList: filterProductList});
   };
-  
 
   //this works
   handleChange = (event)=> {
@@ -43,8 +43,10 @@ class SearchBar extends React.Component {
     // .productByName(this.state.productName)
     Axios.post("http://localhost:5000/product/searchPage" , {productName:this.state.productName}, {withCredentials: true})
     .then( result => {
-      console.log('result', result)
-      //redirect to searchPage
+      
+      return <Redirect to="/searchPage" data={result} >
+      <searchPage />
+      </Redirect>
       // with productName info
       // console.log(productName);
     })
