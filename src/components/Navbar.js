@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
 
+
 class Navbar extends Component {
   render() {
     const { user, logout, isLoggedIn } = this.props;
@@ -16,7 +17,7 @@ class Navbar extends Component {
           <h4>Profile</h4>
         </Link>
 
-        <Link to={"/searchPage"} className="nav-btn">
+        <Link to={"#"} className="nav-btn">
           <h4>Categories</h4>
         </Link>
         
@@ -47,5 +48,6 @@ class Navbar extends Component {
     );
   }
 }
+
 
 export default withAuth(Navbar);

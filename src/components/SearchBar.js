@@ -24,9 +24,10 @@ class SearchBar extends React.Component {
   };
   
 
-  //this works
+  //Changes handler on SearchBar
   handleChange = (event)=> {
     const { name, value } = event.target;
+    // console.log('this.state.productName', this.state.productName)    
 
     this.setState({[name]:value});
   };
@@ -35,8 +36,7 @@ class SearchBar extends React.Component {
   handleSubmitSearch = (event) => {
     event.preventDefault()
     // alert('something was submitted: ' + this.state.value);
-    // console.log('something was submitted: ');
-    
+    // console.log('something was submitted: ');    
 
     // searchService
     // .productByName(this.state.productName)
