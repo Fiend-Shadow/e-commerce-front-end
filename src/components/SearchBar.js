@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import searchService from "./../lib/search-service";
 import Axios from "axios";
-import {Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import SearchPage from "./../pages/SearchPage";
 
 
@@ -28,42 +28,44 @@ class SearchBar extends React.Component {
   handleChange = (event)=> {
     const { name, value } = event.target;
     // console.log('this.state.productName', this.state.productName)    
-
+   
     this.setState({[name]:value});
   };
 
 
-  handleSubmitSearch = (event) => {
-    event.preventDefault()
+  // handleSubmitSearch = (event) => {
+    // event.preventDefault()
     // alert('something was submitted: ' + this.state.value);
-    // console.log('something was submitted: ');    
+    // console.log('something was submitted: ');
 
-    // searchService
-    // .productByName(this.state.productName)
-    Axios.post("http://localhost:5000/order/searchPage" ,
-               {productName:this.state.productName}, {withCredentials: true})
-      .then( result => {
+    // Axios.post("http://localhost:5000/order/searchPage" ,
+    //            {productName:this.state.productName}, {withCredentials: true})
+      // .then( result => {
       
-        return <SearchPage data={result} />
+      //   return <SearchPage data={result} />
         //redirect to searchPage
         // with productName info
         // console.log(productName);
-      })
-      .catch(err => 
-        console.log('An error for the search goes here')
-      )
-    
-  };
+      // })
+      // .catch(err => 
+      //   console.log('An error for the search goes here')
+      // )    
+  // };
 
   render () {
     return (
-      <form onSubmit={this.handleSubmitSearch}>
+      
+         <form onSubmit={this.props.productByName(this.state.productName)}>
         <label>
           SearchBar:
           <input type="text" name = "productName" value={this.state.value} onChange={this.handleChange} />
         </label>
+        <Link to ="/searchPage" data={this.props.productByName(this.state.productName)}>
         <input type="submit" value="Search" />
+        </Link>
       </form>
+      
+     
     )
   }
 }

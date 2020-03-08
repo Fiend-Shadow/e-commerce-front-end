@@ -8,12 +8,14 @@ class Navbar extends Component {
     showSearchBar: true
   }
 
-  toggleSearchBar = () => {
-    this.setState({ showSearchBar: false });
-  };
+  // logoutWithHide = () => {
+  //   return this.props.logout, this.props.hide;
+  // }
 
   render() {
     const { user, logout, isLoggedIn } = this.props;
+
+  
 
     return (
       <nav className="navbar">
@@ -37,12 +39,10 @@ class Navbar extends Component {
         ) : (
           <>
             <Link to="/login">
-              {" "}
               <button className="navbar-button" onClick={this.props.hide}>Login</button>{" "}
             </Link>
             <br />
             <Link to="/signup">
-              {" "}
               <button className="navbar-button" onClick={this.props.hide}>Sign Up</button>{" "}
             </Link>
           </>

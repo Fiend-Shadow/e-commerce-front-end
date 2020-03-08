@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import axios from "axios";
 import products from "./products.json";
 
@@ -17,6 +17,7 @@ import SearchPage from "./pages/SearchPage";
 import MyCartPage from "./pages/MyCartPage";
 import ProductDetails from "./pages/ProductDetails";
 import SearchBar from "./components/SearchBar";
+import Axios from "axios";
 
 // import products from './somefile.json';
 // import Products from './ProductsComponentFile';
@@ -53,12 +54,25 @@ class App extends Component {
     this.setState({ showSearchBar: true });
   };
 
+  searchResult = (oneProduct) => {
+    // e.preventDefault();
+
+    Axios.post("http://localhost:5000/product/searchPage" ,
+               {productName:oneProduct}, {withCredentials: true})
+    .then((result) => {
+      return result; 
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
+
 
   render() {
     return (
       <div className="container">
         <Navbar hide={this.hideSearchBar} show={this.showSearchBar}/>
-        {this.state.showSearchBar ? <SearchBar /> :console.log("aslkdjf") }
+        {this.state.showSearchBar ? <SearchBar productByName = {this.searchResult}/> :console.log("aslkdjf") }
         
         <Switch>
           <Route exact path="/" component={Home} />

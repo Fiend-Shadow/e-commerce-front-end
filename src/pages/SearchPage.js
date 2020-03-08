@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { render } from "@testing-library/react";
+//
 // import products from './products.json'
 // import Products from './Products';
 import Axios from 'axios';
@@ -48,7 +48,7 @@ class  SearchPage extends Component {
       <div>
         <h1>Search Results Page</h1>
         <ul>
-          <li>product 1</li>
+          <li>{this.props.children}</li>
           <li>Product 2</li>
           <li>Product 3</li>
           <li>Product 4</li>
