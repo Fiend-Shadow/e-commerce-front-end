@@ -40,17 +40,18 @@ class SearchBar extends React.Component {
 
     // searchService
     // .productByName(this.state.productName)
-    Axios.post("http://localhost:5000/product/searchPage" , {productName:this.state.productName}, {withCredentials: true})
-    .then( result => {
-     
-  return <SearchPage data={result} />
-      //redirect to searchPage
-      // with productName info
-      // console.log(productName);
-    })
-    .catch(err => 
-      console.log('An error for the search goes here')
-    )
+    Axios.post("http://localhost:5000/order/searchPage" ,
+               {productName:this.state.productName}, {withCredentials: true})
+      .then( result => {
+      
+        return <SearchPage data={result} />
+        //redirect to searchPage
+        // with productName info
+        // console.log(productName);
+      })
+      .catch(err => 
+        console.log('An error for the search goes here')
+      )
     
   };
 

@@ -9,7 +9,6 @@ function Home() {
       <div id="hero-container">
         <h2>This is the hero title</h2>
         <h4>Inspiring phrase for the world</h4>
-
       </div>
       
       

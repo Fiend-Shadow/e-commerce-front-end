@@ -10,7 +10,6 @@ const withAuth = WrappedComponent => {
     render() {
       return (
 
-
         <Consumer>
           {
             (value) => {
@@ -28,7 +27,6 @@ const withAuth = WrappedComponent => {
             );
           }}
         </Consumer>
-
         
       );
     }
