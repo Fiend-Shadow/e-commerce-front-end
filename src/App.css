@@ -1,13 +1,14 @@
 html, body {
   margin: 0;
   padding: 0;
+  display:flex;
 }
 
 .App {
-  padding: 20px;;
+  padding: 20px;
 }
 
-nav.navbar { 
+/* nav.navbar { 
   display: flex;
   padding: 0px 20px;
   background: #686de0; 
@@ -23,4 +24,4 @@ button.navbar-button {
 .nav-btn {
   color: white;
   text-decoration: none;
-}
+} */

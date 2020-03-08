@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+// import "./components/Navbar.css"
 import { Switch, Route, Redirect } from "react-router-dom";
 import axios from "axios";
 import products from "./products.json";
