@@ -1,28 +1,27 @@
 import React, { Component } from "react";
-import SearchBar from "./../components/SearchBar";
-import { render } from "@testing-library/react";
-import products from './products.json'
+// import { render } from "@testing-library/react";
+// import products from './products.json'
 // import Products from './Products';
-
+import Axios from 'axios';
 
 class  SearchPage extends Component {
   state = {
     productObj: {}
   }
 
-  newOrderAttempt1 = () => {
-    const selectedProduct = 
-    const newRandomContact = products.splice(randomNumber, 1);
-    // OPCION 2
-    // const newRandomContact = contacts[randomNumber];
+  // newOrderAttempt1 = () => {
+  //   const selectedProduct = 
+  //   const newRandomContact = products.splice(randomNumber, 1);
+  //   // OPCION 2
+  //   // const newRandomContact = contacts[randomNumber];
 
-    let updatedList = [...this.state.contactsList, newRandomContact[0]];
-    this.setState({contactsList: updatedList});
-    // escribir aca OPCION 2
+  //   let updatedList = [...this.state.contactsList, newRandomContact[0]];
+  //   this.setState({contactsList: updatedList});
+  //   // escribir aca OPCION 2
 
-    console.log(newRandomContact[0]);
-    console.log(updatedList);
-  };
+  //   console.log(newRandomContact[0]);
+  //   console.log(updatedList);
+  // };
 
   handleSubmitAddOrderAttempt2 = (event) => {
     event.preventDefault()
@@ -47,10 +46,9 @@ class  SearchPage extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
         <h1>Search Results Page</h1>
         <ul>
-          <li>{productName}</li>
+          <li>product 1</li>
           <li>Product 2</li>
           <li>Product 3</li>
           <li>Product 4</li>

@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
 
 class Signup extends Component {
-  state = { username: "", password: "" };
-
+  state = { username: "",
+            password: "" ,
+            // showSearchBar: true
+          };
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, email, password } = this.state;
@@ -16,6 +18,10 @@ class Signup extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+
+  // toggleSearchBar = () => {
+  //   this.setState({ showSearchBar: !this.state.showSearchBar });
+  // };
 
   render() {
     const { username, email, password } = this.state;

@@ -4,7 +4,6 @@ import SearchBar from "./../components/SearchBar";
 function Home() {
   return (
     <div>
-      <SearchBar />
       <h1>E-Commerce website</h1>
       <div id="hero-container">
         <h2>This is the hero title</h2>

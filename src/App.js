@@ -16,6 +16,7 @@ import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
 import MyCartPage from "./pages/MyCartPage";
 import ProductDetails from "./pages/ProductDetails";
+import SearchBar from "./components/SearchBar";
 
 // import products from './somefile.json';
 // import Products from './ProductsComponentFile';
@@ -24,7 +25,8 @@ import ProductDetails from "./pages/ProductDetails";
 class App extends Component {
   state = {
     products: products,
-    filterProductList: products
+    filterProductList: products,
+    showSearchBar: true
   };
 
   // componentDidMount() {
@@ -43,10 +45,20 @@ class App extends Component {
   //   console.log('update');    
   // }
 
+  hideSearchBar = () => {
+    this.setState({ showSearchBar: false });
+  };
+
+  showSearchBar = () => {
+    this.setState({ showSearchBar: true });
+  };
+
+
   render() {
     return (
       <div className="container">
-        <Navbar />
+        <Navbar hide={this.hideSearchBar} show={this.showSearchBar}/>
+        {this.state.showSearchBar ? <SearchBar /> :console.log("aslkdjf") }
         
         <Switch>
           <Route exact path="/" component={Home} />
@@ -56,7 +68,7 @@ class App extends Component {
           <PrivateRoute exact path="/profilePage" component={ProfilePage} />
           <AnonRoute exact path="/searchPage" component={SearchPage} />
           <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
-          <AnnonRoute exact path="/productDetails/:product_id" component={ProductDetails}/>
+          <AnonRoute exact path="/productDetails/:product_id" component={ProductDetails}/>
 
         {/* <PrivateRoute exact path="/private" component={Private} /> */}
         </Switch>

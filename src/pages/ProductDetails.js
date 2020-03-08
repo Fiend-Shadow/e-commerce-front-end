@@ -18,7 +18,6 @@ class ProductDetails extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
         <h1>ProductDetails</h1>
         <h2>Title of Product </h2>
         <img src="" />
