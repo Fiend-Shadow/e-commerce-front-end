@@ -48,8 +48,8 @@ class  SearchPage extends Component {
       <div>
         <h1>Search Results Page</h1>
         <ul>
-          <li>{this.props.children}</li>
-          <li>Product 2</li>
+          <li>{console.log(this.props)}</li>
+          {/* <li>{this.props.data}</li> */}
           <li>Product 3</li>
           <li>Product 4</li>
         </ul>

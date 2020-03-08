@@ -72,7 +72,7 @@ class App extends Component {
     return (
       <div className="container">
         <Navbar hide={this.hideSearchBar} show={this.showSearchBar}/>
-        {this.state.showSearchBar ? <SearchBar productByName = {this.searchResult}/> :console.log("aslkdjf") }
+        {this.state.showSearchBar ? <SearchBar productByName = {this.searchResult}/> :console.log("aslkdef") }
         
         <Switch>
           <Route exact path="/" component={Home} />

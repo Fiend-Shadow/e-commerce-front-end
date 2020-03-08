@@ -60,7 +60,7 @@ class SearchBar extends React.Component {
           SearchBar:
           <input type="text" name = "productName" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <Link to ="/searchPage" data={this.props.productByName(this.state.productName)}>
+        <Link to ="/searchPage" data={this.props.productByName(this.state.value)}>
         <input type="submit" value="Search" />
         </Link>
       </form>
