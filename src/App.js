@@ -43,6 +43,7 @@ class App extends Component {
 
   searchResult = (oneProduct) => {
     // e.preventDefault();
+    
 
     Axios.post("http://localhost:5000/product/searchPage" ,
                {productName:oneProduct}, {withCredentials: true})

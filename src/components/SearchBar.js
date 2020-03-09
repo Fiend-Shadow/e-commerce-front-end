@@ -3,7 +3,7 @@ import searchService from "./../lib/search-service";
 import Axios from "axios";
 import {Link} from "react-router-dom";
 import SearchPage from "./../pages/SearchPage";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 
 class SearchBar extends React.Component {
     state = {
@@ -35,7 +35,8 @@ class SearchBar extends React.Component {
 
   handleSubmitSearch = (event) => {
     event.preventDefault();
-    const {productName} = this.state ;
+    // this.setState();
+    let {productName} = this.state ;
     
     this.props.history.push(`/searchPage?product=${productName}`)
   };
@@ -48,7 +49,7 @@ class SearchBar extends React.Component {
           SearchBar:
           <input type="text" name = "productName" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <button type="submit">as</button>
+        <button type="submit">search</button>
         {/* <Link to ="/searchPage" data={this.props.productByName(this.state.value)}>
         <input type="submit" value="Search" />
         </Link> */}

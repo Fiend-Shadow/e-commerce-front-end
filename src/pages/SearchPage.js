@@ -4,26 +4,44 @@ import React, { Component } from "react";
 // import Products from './Products';
 import axios from 'axios';
 import queryString from 'query-string';
-class  SearchPage extends Component {
+import {withRouter} from 'react-router';
+
+
+class SearchPage extends Component {
   state = {
-    products: []
+    products: [],
+    isLoading: true
   }
 
-
   componentDidMount() {
+    // this.setState({products:[]});
+    
     const values = queryString.parse(this.props.location.search)
+    console.log(values);
+    
     const productName = values.product;
     this.searchResult(productName);
   }
 
 
-  searchResult = (oneProduct) => {
-    // e.preventDefault();
+  // shouldComponentUpdate(nextState) {
+  //   const compareProductName = this.state.products!== nextState.products;
+  //   console.log(compareProductName);
+    
+  //   return compareProductName;
+  // }
+  
 
+    searchResult = (oneProduct) => {
+    // e.preventDefault();
+    // this.setState({products:[]});
+    
     axios.post("http://localhost:5000/product/searchPage" ,
                {productName:oneProduct}, {withCredentials: true})
     .then((response) => {
-      this.setState({products:response.data}); 
+      this.setState({products:response.data, isLoading: false}); 
+      console.log('state de...',this.state.products);
+      
     })
     .catch((err) => {
       console.log(err);
@@ -48,6 +66,8 @@ class  SearchPage extends Component {
 
   handleSubmitSearch = (event) => {
     event.preventDefault();
+    // this.setState({products:[]});
+
     const productName = event.value ;
     console.log("productName", productName);
     this.props.history.push(`/productDetails?product=${productName}`)
@@ -55,15 +75,17 @@ class  SearchPage extends Component {
 
 
   render() {
+    console.log('this.state in render', this.state)
     return (
       <div>
         <h1>Search Results Page</h1>
         
         {
-          this.state.products.length > 0 
+          !this.state.isLoading 
             ? this.state.products.map((prod) => {
               return (
                 <div key={prod._id}>
+                <p>hello capu </p>
                 <form onSubmit={this.handleSubmitSearch}>
                 <h3> {prod.productName}</h3>
                 <p>{prod.description}</p>
@@ -74,7 +96,8 @@ class  SearchPage extends Component {
                 </div>
                 )
             }
-          ) : null
+          ) : 
+          <div>loading...</div>
         }
           
         
@@ -85,4 +108,4 @@ class  SearchPage extends Component {
   }
 }
 
-export default SearchPage;
+export default withRouter(SearchPage);
