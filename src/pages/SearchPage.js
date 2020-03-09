@@ -69,19 +69,23 @@ class  SearchPage extends Component {
     return (
       <div>
         <h1>Search Results Page</h1>
-        <ul>
+        
         {
           this.state.products.length > 0 
             ? this.state.products.map((prod) => {
-              return <li key={prod._id}> {prod.productName}</li>
+              return (
+                <div key={prod._id}>
+                <h3> {prod.productName}</h3>
+                <p>{prod.description}</p>
+                <img src={prod.img_url} alt="" />
+                <p>{prod.productPrice}</p>
+                </div>
+                )
             }
           ) : null
         }
-          <li></li>
-          {/* <li>{this.props.data}</li> */}
-          <li>Product 3</li>
-          <li>Product 4</li>
-        </ul>
+          
+        
         
         
       </div>

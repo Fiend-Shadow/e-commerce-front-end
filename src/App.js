@@ -31,21 +31,7 @@ class App extends Component {
     showSearchBar: true
   };
 
-  // componentDidMount() {
-  //   console.log('did mount something');    
-  //   axios
-  //   .get("here goes the adress for our products data")
-  //   .then ( response => {
-  //     this.setState({ products: response.data });
-  //   })
-  //   .catch(err => console.log(err)
-  //   )
-  // }  
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   // console.log(prevProps, prevState);
-  //   console.log('update');    
-  // }
 
   hideSearchBar = () => {
     this.setState({ showSearchBar: false });
@@ -83,7 +69,7 @@ class App extends Component {
           <PrivateRoute exact path="/profilePage" component={ProfilePage} />
           <AnonRoute exact path="/searchPage" component={SearchPage} />
           <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
-          <AnonRoute exact path="/productDetails/:product_id" component={ProductDetails}/>
+          <AnonRoute exact path="/productDetails/" component={ProductDetails}/>
 
         {/* <PrivateRoute exact path="/private" component={Private} /> */}
         </Switch>
