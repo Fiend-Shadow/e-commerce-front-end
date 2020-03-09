@@ -69,7 +69,7 @@ class App extends Component {
           <PrivateRoute exact path="/profilePage" component={ProfilePage} />
           <AnonRoute exact path="/searchPage" component={SearchPage} />
           <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
-          <AnonRoute exact path="/productDetails/" component={ProductDetails}/>
+          <AnonRoute exact path="/productDetails" component={ProductDetails}/>
 
         {/* <PrivateRoute exact path="/private" component={Private} /> */}
         </Switch>

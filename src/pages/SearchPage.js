@@ -45,23 +45,12 @@ class  SearchPage extends Component {
   //   console.log(updatedList);
   // };
 
-  handleSubmitAddOrderAttempt2 = (event) => {
-    event.preventDefault()
-    // alert('Add order btn pressed' + this.state.value);
-    // console.log('submit order btn pressed:', this.state.value);    
 
-    axios.post("http://localhost:5000/product/searchPage" , 
-      {productObj:this.state.productObj}, {withCredentials: true})
-
-      .then( result => {
-     
-        return <SearchPage data={result} />
-  
-      })
-      .catch(err => 
-        console.log('An error for the search goes here')
-      )
-    
+  handleSubmitSearch = (event) => {
+    event.preventDefault();
+    const productName = event.value ;
+    console.log("productName", productName);
+    this.props.history.push(`/productDetails?product=${productName}`)
   };
 
 
@@ -75,10 +64,13 @@ class  SearchPage extends Component {
             ? this.state.products.map((prod) => {
               return (
                 <div key={prod._id}>
+                <form onSubmit={this.handleSubmitSearch}>
                 <h3> {prod.productName}</h3>
                 <p>{prod.description}</p>
                 <img src={prod.img_url} alt="" />
                 <p>{prod.productPrice}</p>
+                  <button type="submit" value={prod.productName}>Details</button>
+                </form>
                 </div>
                 )
             }
