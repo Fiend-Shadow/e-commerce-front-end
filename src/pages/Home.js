@@ -6,8 +6,8 @@ function Home() {
     <div>
       <h1>E-Commerce website</h1>
       <div id="hero-container">
-        <h2>This is the hero title</h2>
-        <h4>Inspiring phrase for the world</h4>
+        <h2>Hero title here</h2>
+        <h4>Inspiring phrase for consumers</h4>
       </div>
       
       

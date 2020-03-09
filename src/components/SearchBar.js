@@ -4,6 +4,7 @@ import Axios from "axios";
 import {Link} from "react-router-dom";
 import SearchPage from "./../pages/SearchPage";
 import { withRouter } from "react-router-dom";
+import "./SearchBar.css";
 
 class SearchBar extends React.Component {
     state = {
@@ -11,8 +12,7 @@ class SearchBar extends React.Component {
     };
 
     // componentDidMount() {
-    // }
-    
+    // }    
     searchProduct = searchValue =>{
     const filterProductList = this.state.productsList.filter(element => {
       let lowProduct = element.name.toLowerCase();
@@ -38,13 +38,15 @@ class SearchBar extends React.Component {
     // this.setState();
     let {productName} = this.state ;
     
-    this.props.history.push(`/searchPage?product=${productName}`)
+    this.props.history.push(`/searchPage?product=${productName}`);
+    
+    // this.setState({});
   };
 
   render () {
     return (
       // <form onSubmit={this.props.productByName(this.state.productName)}>
-         <form onSubmit={this.handleSubmitSearch}>
+         <form id="search-bar-container" onSubmit={this.handleSubmitSearch}>
         <label>
           SearchBar:
           <input type="text" name = "productName" value={this.state.value} onChange={this.handleChange} />

@@ -11,9 +11,12 @@
 #menuToggle
 {
   display: block;
-  position: relative;
+  /* position: relative; */
   top: 50px;
   left: 50px;
+  background-color: #260101;
+  
+  padding: 20px;
   
   z-index: 1;
   
@@ -21,17 +24,18 @@
   user-select: none;
 }
 
+/* Links in menu  */
 #menuToggle a
 {
   text-decoration: none;
-  color: #232323;
+  color: #260101;
   
   transition: color 0.3s ease;
 }
 
 #menuToggle a:hover
 {
-  color: tomato;
+  color: #5BA698;
 }
 
 
@@ -41,8 +45,8 @@
   width: 40px;
   height: 32px;
   position: absolute;
-  top: -7px;
-  left: -5px;
+  top: 20px;
+  left: 10px;
   
   cursor: pointer;
   
@@ -52,6 +56,8 @@
   -webkit-touch-callout: none;
 }
 
+
+/* Burguer */
 #menuToggle span
 {
   display: block;
@@ -60,7 +66,7 @@
   margin-bottom: 5px;
   position: relative;
   
-  background: #cdcdcd;
+  background: #F2D5C4;
   border-radius: 3px;
   
   z-index: 1;
@@ -82,11 +88,13 @@
   transform-origin: 0% 100%;
 }
 
+
+/* Cross */
 #menuToggle input:checked ~ span
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: #260101;
 }
 
 #menuToggle input:checked ~ span:nth-last-child(3)
@@ -100,15 +108,19 @@
   transform: rotate(-45deg) translate(0, -1px);
 }
 
+
+
+
 #menu
 {
-  position: absolute;
-  width: 300px;
+  position: fixed;
+  width: 2000px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
+  color: #260101;
+  background-color: rgba(242, 213, 196, 0.95);
   
-  background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -128,4 +140,15 @@
 #menuToggle input:checked ~ ul
 {
   transform: none;
+}
+
+
+.navbar-button {
+  background: #260101;
+  color: #F2D5C4;
+  border: none;
+}
+
+.navbar-button:hover {
+  color: white;
 }

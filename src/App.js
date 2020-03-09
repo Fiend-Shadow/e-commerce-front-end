@@ -45,7 +45,7 @@ class App extends Component {
     // e.preventDefault();
     
 
-    Axios.post("http://localhost:5000/product/searchPage" ,
+    axios.post("http://localhost:5000/product/searchPage" ,
                {productName:oneProduct}, {withCredentials: true})
     .then((result) => {
       return result; 
@@ -59,7 +59,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Navbar hide={this.hideSearchBar} show={this.showSearchBar}/>
+        <Navbar hide={this.hideSearchBar} show={this.showSearchBar} className="nav-bar"/>
         {this.state.showSearchBar ? <SearchBar productByName = {this.searchResult}/> :console.log("aslkdef") }
         
         <Switch>

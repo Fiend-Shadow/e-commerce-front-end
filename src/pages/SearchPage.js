@@ -23,6 +23,16 @@ class SearchPage extends Component {
     this.searchResult(productName);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.location.search !== this.props.location.search) {
+      const values = queryString.parse(this.props.location.search)
+      
+      const productName = values.product;
+      this.searchResult(productName);
+    }
+    
+  }
+
 
   // shouldComponentUpdate(nextState) {
   //   const compareProductName = this.state.products!== nextState.products;
@@ -64,7 +74,7 @@ class SearchPage extends Component {
   // };
 
 
-  handleSubmitSearch = (event) => {
+  handleSubmitProdDetails = (event) => {
     event.preventDefault();
     // this.setState({products:[]});
 
@@ -86,7 +96,7 @@ class SearchPage extends Component {
               return (
                 <div key={prod._id}>
                 <p>hello capu </p>
-                <form onSubmit={this.handleSubmitSearch}>
+                <form onSubmit={this.handleSubmitProdDetails}>
                 <h3> {prod.productName}</h3>
                 <p>{prod.description}</p>
                 <img src={prod.img_url} alt="" />
@@ -108,4 +118,4 @@ class SearchPage extends Component {
   }
 }
 
-export default withRouter(SearchPage);
+export default SearchPage;
