@@ -2,12 +2,34 @@ import React, { Component } from "react";
 //
 // import products from './products.json'
 // import Products from './Products';
-import Axios from 'axios';
-
+import axios from 'axios';
+import queryString from 'query-string';
 class  SearchPage extends Component {
   state = {
-    productObj: {}
+    products: []
   }
+
+
+  componentDidMount() {
+    const values = queryString.parse(this.props.location.search)
+    const productName = values.product;
+    this.searchResult(productName);
+  }
+
+
+  searchResult = (oneProduct) => {
+    // e.preventDefault();
+
+    axios.post("http://localhost:5000/product/searchPage" ,
+               {productName:oneProduct}, {withCredentials: true})
+    .then((response) => {
+      this.setState({products:response.data}); 
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+  
 
   // newOrderAttempt1 = () => {
   //   const selectedProduct = 
@@ -28,7 +50,7 @@ class  SearchPage extends Component {
     // alert('Add order btn pressed' + this.state.value);
     // console.log('submit order btn pressed:', this.state.value);    
 
-    Axios.post("http://localhost:5000/product/searchPage" , 
+    axios.post("http://localhost:5000/product/searchPage" , 
       {productObj:this.state.productObj}, {withCredentials: true})
 
       .then( result => {
@@ -48,7 +70,14 @@ class  SearchPage extends Component {
       <div>
         <h1>Search Results Page</h1>
         <ul>
-          <li>{console.log(this.props)}</li>
+        {
+          this.state.products.length > 0 
+            ? this.state.products.map((prod) => {
+              return <li key={prod._id}> {prod.productName}</li>
+            }
+          ) : null
+        }
+          <li></li>
           {/* <li>{this.props.data}</li> */}
           <li>Product 3</li>
           <li>Product 4</li>

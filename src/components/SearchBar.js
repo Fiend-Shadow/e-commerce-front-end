@@ -3,7 +3,7 @@ import searchService from "./../lib/search-service";
 import Axios from "axios";
 import {Link} from "react-router-dom";
 import SearchPage from "./../pages/SearchPage";
-
+import { withRouter } from "react-router";
 
 class SearchBar extends React.Component {
     state = {
@@ -33,36 +33,25 @@ class SearchBar extends React.Component {
   };
 
 
-  // handleSubmitSearch = (event) => {
-    // event.preventDefault()
-    // alert('something was submitted: ' + this.state.value);
-    // console.log('something was submitted: ');
-
-    // Axios.post("http://localhost:5000/order/searchPage" ,
-    //            {productName:this.state.productName}, {withCredentials: true})
-      // .then( result => {
-      
-      //   return <SearchPage data={result} />
-        //redirect to searchPage
-        // with productName info
-        // console.log(productName);
-      // })
-      // .catch(err => 
-      //   console.log('An error for the search goes here')
-      // )    
-  // };
+  handleSubmitSearch = (event) => {
+    event.preventDefault();
+    const {productName} = this.state ;
+    
+    this.props.history.push(`/searchPage?product=${productName}`)
+  };
 
   render () {
     return (
-      
-         <form onSubmit={this.props.productByName(this.state.productName)}>
+      // <form onSubmit={this.props.productByName(this.state.productName)}>
+         <form onSubmit={this.handleSubmitSearch}>
         <label>
           SearchBar:
           <input type="text" name = "productName" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <Link to ="/searchPage" data={this.props.productByName(this.state.value)}>
+        <button type="submit">as</button>
+        {/* <Link to ="/searchPage" data={this.props.productByName(this.state.value)}>
         <input type="submit" value="Search" />
-        </Link>
+        </Link> */}
       </form>
       
      
@@ -70,4 +59,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);
