@@ -4,10 +4,10 @@ import SearchBar from "./../components/SearchBar";
 function Home() {
   return (
     <div>
-      <h1>E-Commerce website</h1>
+      <h1>Shop Mate</h1>
       <div id="hero-container">
-        <h2>Hero title here</h2>
-        <h4>Inspiring phrase for consumers</h4>
+        <h3>Expect More. Pay Less .</h3>
+        <h4>All your favourite brands in one place</h4>
       </div>
       
       
