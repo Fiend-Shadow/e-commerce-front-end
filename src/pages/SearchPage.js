@@ -6,7 +6,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 class  SearchPage extends Component {
   state = {
-    products: []
+    products: {}
   }
 
 
@@ -31,25 +31,14 @@ class  SearchPage extends Component {
   }
   
 
-  // newOrderAttempt1 = () => {
-  //   const selectedProduct = 
-  //   const newRandomContact = products.splice(randomNumber, 1);
-  //   // OPCION 2
-  //   // const newRandomContact = contacts[randomNumber];
-
-  //   let updatedList = [...this.state.contactsList, newRandomContact[0]];
-  //   this.setState({contactsList: updatedList});
-  //   // escribir aca OPCION 2
-
-  //   console.log(newRandomContact[0]);
-  //   console.log(updatedList);
-  // };
+ 
 
 
   handleSubmitSearch = (event) => {
     event.preventDefault();
-    const productName = event.value ;
-    console.log("productName", productName);
+    const productName = event.target ;
+    console.log(productName);
+    
     this.props.history.push(`/productDetails?product=${productName}`)
   };
 
@@ -64,12 +53,12 @@ class  SearchPage extends Component {
             ? this.state.products.map((prod) => {
               return (
                 <div key={prod._id}>
-                <form onSubmit={this.handleSubmitSearch}>
+                <form onSubmit={this.handleSubmitSearch} >
                 <h3> {prod.productName}</h3>
                 <p>{prod.description}</p>
                 <img src={prod.img_url} alt="" />
                 <p>{prod.productPrice}</p>
-                  <button type="submit" value={prod.productName}>Details</button>
+                  <button type="submit">Details</button>
                 </form>
                 </div>
                 )
