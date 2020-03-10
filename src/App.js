@@ -20,6 +20,7 @@ import ProductDetails from "./pages/ProductDetails";
 import SearchBar from "./components/SearchBar";
 import AdminPage from "./pages/AdminPage";
 import AdminAddProduct from "./pages/AdminAddProduct";
+import CheckIfAdmin from "./pages/CheckIfAdmin";
 // import products from './somefile.json';
 // import Products from './ProductsComponentFile';
 
@@ -72,7 +73,7 @@ class App extends Component {
           {/* User routes */}
           <PrivateRoute exact path="/profilePage" component={ProfilePage} />
           <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
-          
+          <PrivateRoute exact path="/private" component={CheckIfAdmin}/>
           
           {/* Admin routes */}
           <PrivateRoute exact path= "/adminPage" component={AdminPage} />

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
-import SearchBar from "./components/SearchBar";
 
 class Private extends Component {
   render() {

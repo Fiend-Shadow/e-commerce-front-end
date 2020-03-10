@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from "./../lib/Auth";
 import Private      from "./Private";
 import AdminPage from "./AdminPage";
-
+import Home from "./Home";
 
 class CheckIfAdmin extends Component {
 	state={
@@ -16,7 +16,7 @@ class CheckIfAdmin extends Component {
 			<div>
 				{
 					this.state.user?
-							this.state.user.isAdmin?<AdminPage />:<Private />
+							this.state.user.isAdmin?<AdminPage />:<Home/>
 					:null
 				}
 			</div>
