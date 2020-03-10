@@ -12,23 +12,16 @@ class AdminAddProduct extends React.Component {
   render () {
     return (
       // <form onSubmit={this.props.productByName(this.state.productName)}>
-         <form id="search-bar-container" onSubmit={this.handleSubmitSearch}>
-        <label>
-          SearchBar:
-          <input type="text" name = "productName" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <button type="submit">search</button>
-        {/* <Link to ="/searchPage" data={this.props.productByName(this.state.value)}>
-        <input type="submit" value="Search" />
-        </Link> */}
-      </form>
+        <h1>Add Product Page</h1>
 
-
-        //ADD PRODUCT EXAMPLE     
+    
      
     )
   }
 }
+
+        //ADD PRODUCT EXAMPLE 
+
 
 {/* <h1>Add boat</h1>
 

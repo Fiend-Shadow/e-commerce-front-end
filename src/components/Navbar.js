@@ -31,13 +31,26 @@ class Navbar extends Component {
               <li>Home</li>
             </Link>
 
+            <Link to={"#"} className="nav-btn" onClick={this.props.show}>
+              <li>Categories</li>
+            </Link>
+
             {isLoggedIn && user.isAdmin ? (
                 <>
                 <Link to={"/adminPage"} className="nav-btn" onClick={this.props.show}>
                   <li>Admin Page</li>
                 </Link>
+
+                <Link to={"/adminAddProduct"} className="nav-btn" onClick={this.props.show}>
+                  <li>Add Prouct</li>
+                </Link>
+
+
+
+                <p>username: {user.username}</p>
+                <button onClick={logout}>Logout</button>
                 </>
-                
+
               ) : (
                 <>
                   <Link to={"/profilePage"} className="nav-btn" onClick={this.props.show}>
@@ -45,22 +58,21 @@ class Navbar extends Component {
                   </Link>
                 </>
               )            
-            } 
+            }
 
 
-            <Link to={"#"} className="nav-btn" onClick={this.props.show}>
-              <li>Categories</li>
-            </Link>
-
-            <Link to={"/myCartPage"} className="nav-btn" onClick={this.props.show}>
-              <h4>MyCartPage</h4>
-            </Link>   
             
-            {isLoggedIn ? (
+            {isLoggedIn && !user.isAdmin ? (
               <>
                 <p>username: {user.username}</p>
                 <button onClick={logout}>Logout</button>
+
+
+                <Link to={"/myCartPage"} className="nav-btn" onClick={this.props.show}>
+                  <h4>MyCartPage</h4>
+                </Link>
               </>
+
             ) : (
               <>
                 <Link to="/login">
