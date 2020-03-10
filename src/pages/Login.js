@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = { username: "", password: "" };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
-    this.props.login(username, password);
+    this.props.login(email, password);
   };
 
   handleChange = event => {
@@ -17,18 +18,18 @@ class Login extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
     return (
       <div>
         <h1>Login</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
+          <label>Email:</label>
           <input
-            type="text"
-            name="username"
-            value={username}
+            type="email"
+            name="email"
+            value={email}
             onChange={this.handleChange}
           />
 
@@ -42,6 +43,10 @@ class Login extends Component {
 
           <input type="submit" value="Login" />
         </form>
+
+        <p>Don't have account?</p>
+        <Link to={"/signup"}> Signup</Link>
+
       </div>
     );
   }

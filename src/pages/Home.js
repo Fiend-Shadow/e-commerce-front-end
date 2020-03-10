@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import SearchBar from "./../components/SearchBar";
 
 function Home() {
   return (
-    <div> 
-      <h1>Home Page</h1>
+    <div>
+      <h1>Shop Mate</h1>
+      <div id="hero-container">
+        <h3>Expect More. Pay Less .</h3>
+        <h4>All your favourite brands in one place</h4>
+      </div>
+      
+      
     </div>
   )
 }

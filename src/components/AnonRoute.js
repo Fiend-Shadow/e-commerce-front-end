@@ -4,7 +4,13 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { withAuth } from "../lib/Auth";
 
-function AnonRoute({ component: Component, isLoggedIn, ...rest }) {
+function AnonRoute(props) {
+
+  const { component: Component, isLoggedIn, ...rest } = props;
+  // const { component: Component, isLoggedIn, exact, path } = props;
+
+  // rest = {   exact: true,  path: "/" }
+
   return (
     // <Route
     //   {...rest}
@@ -13,9 +19,11 @@ function AnonRoute({ component: Component, isLoggedIn, ...rest }) {
     //   }
     // />
     <Route
+      // exact={exact}
+      // path={path}
       {...rest}
       render={function(props) {
-        if (isLoggedIn) return <Redirect to="/private" />;
+        if (isLoggedIn) return <Redirect to="/" />;
         else if (!isLoggedIn) return <Component {...props} />;
       }}
     />
