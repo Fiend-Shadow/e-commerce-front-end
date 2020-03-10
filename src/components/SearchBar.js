@@ -4,6 +4,7 @@ import Axios from "axios";
 import {Link} from "react-router-dom";
 import SearchPage from "./../pages/SearchPage";
 import { withRouter } from "react-router-dom";
+import { withAuth } from "./../lib/Auth";
 import "./SearchBar.css";
 import products from '.././'
 
@@ -63,4 +64,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default withRouter(SearchBar);
+export default withAuth(withRouter(SearchBar));
