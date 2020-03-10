@@ -36,7 +36,7 @@ class SearchPage extends Component {
 
   searchResult = () => {
     axios
-      .get("http://localhost:5000/product/allProducts")
+      .get(process.env.REACT_APP_API_URL+"/product/allProducts")
       .then(response => {
         this.setState ({products: response.data , isLoading: false});
       })
