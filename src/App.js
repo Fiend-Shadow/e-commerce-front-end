@@ -18,8 +18,8 @@ import SearchPage from "./pages/SearchPage";
 import MyCartPage from "./pages/MyCartPage";
 import ProductDetails from "./pages/ProductDetails";
 import SearchBar from "./components/SearchBar";
-import Axios from "axios";
-
+import AdminPage from "./pages/AdminPage";
+import AdminAddProduct from "./pages/AdminAddProduct";
 // import products from './somefile.json';
 // import Products from './ProductsComponentFile';
 
@@ -30,8 +30,6 @@ class App extends Component {
     filterProductList: products,
     showSearchBar: true
   };
-
-
 
   hideSearchBar = () => {
     this.setState({ showSearchBar: false });
@@ -65,12 +63,20 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
 
+          {/* Not logged in routes */}
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
-          <PrivateRoute exact path="/profilePage" component={ProfilePage} />
           <AnonRoute exact path="/searchPage" component={SearchPage} />
-          <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
           <AnonRoute exact path="/productDetails" component={ProductDetails}/>
+
+          {/* User routes */}
+          <PrivateRoute exact path="/profilePage" component={ProfilePage} />
+          <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
+          
+          
+          {/* Admin routes */}
+          <PrivateRoute exact path= "/adminPage" component={AdminPage} />
+          <PrivateRoute exact path= "/adminAddProduct" component={AdminAddProduct} />
 
         {/* <PrivateRoute exact path="/private" component={Private} /> */}
         </Switch>

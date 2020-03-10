@@ -15,17 +15,7 @@ class SearchBar extends React.Component {
     };
 
     // componentDidMount() {
-    // }    
-    searchProduct = (searchValue) =>{
-    const filterProductList = this.state.productsList.filter(element => {
-      let lowProduct = element.name.toLowerCase();
-      let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
-      return lowProductIncludes;
-    });
-    
-    this.setState({filterProductList: filterProductList});
-  };
-  
+    // }  
 
   //Changes handler on SearchBar
   handleChange = (event)=> {

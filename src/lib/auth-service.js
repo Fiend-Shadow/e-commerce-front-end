@@ -31,6 +31,12 @@ class Auth {
     return this.auth.get("/auth/me").then(({ data }) => data);
     // return this.auth.get("/auth/me").then((response) => response.data);
   }
+
+  admin() {
+    return this.auth.get("/auth/admin").then(({ data }) => data);
+    // return this.auth.get("/auth/admin").then((response) => response.data);
+  }
+
 }
 
 const authService = new Auth();

@@ -22,6 +22,7 @@ const withAuth = WrappedComponent => {
                 login={value.login}
                 signup={value.signup}
                 logout={value.logout}
+                admin={value.admin}
                 {...this.props}
               />
             );

@@ -45,9 +45,21 @@ class SearchPage extends Component {
       });
   };
 
+  // searchProduct = (searchValue) =>{
+  //   const filterProductList = this.state.productsList.filter(element => {
+  //     let lowProduct = element.name.toLowerCase();
+  //     let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
+  //     return lowProductIncludes;
+  //   });
+    
+  //   this.setState({filterProductList: filterProductList});
+  // };
+
+
   productMatch = (word)=>{
     let matchesArr = [];
     this.state.products.forEach((oneElement)=>{
+
       if (oneElement.productName.includes(word)){
         matchesArr =[...matchesArr , oneElement];
       }
