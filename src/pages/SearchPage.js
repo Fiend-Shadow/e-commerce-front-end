@@ -1,120 +1,105 @@
 import React, { Component } from "react";
-//
-// import products from './products.json'
-// import Products from './Products';
-import axios from 'axios';
-import queryString from 'query-string';
-import {withRouter} from 'react-router';
+import axios from "axios";
+import queryString from "query-string";
 
 
 class SearchPage extends Component {
   state = {
     products: [],
+    productsMatches: [],
     isLoading: true
-  }
+  };
 
   componentDidMount() {
     // this.setState({products:[]});
-    
-    const values = queryString.parse(this.props.location.search)
-    console.log(values);
-    
+
+    const values = queryString.parse(this.props.location.search);
+
     const productName = values.product;
-    this.searchResult(productName);
+    this.searchResult();
+     this.productMatch(productName);
+    
+    
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.location.search !== this.props.location.search) {
-      const values = queryString.parse(this.props.location.search)
-      
+    if (prevProps.location.search !== this.props.location.search) {
+      const values = queryString.parse(this.props.location.search);
+
       const productName = values.product;
-      this.searchResult(productName);
-    }
-    
-  }
-
-
-  // shouldComponentUpdate(nextState) {
-  //   const compareProductName = this.state.products!== nextState.products;
-  //   console.log(compareProductName);
-    
-  //   return compareProductName;
-  // }
-  
-
-    searchResult = (oneProduct) => {
-    // e.preventDefault();
-    // this.setState({products:[]});
-    
-    axios.post("http://localhost:5000/product/searchPage" ,
-               {productName:oneProduct}, {withCredentials: true})
-    .then((response) => {
-      this.setState({products:response.data, isLoading: false}); 
-      console.log('state de...',this.state.products);
       
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      this.searchResult();
+      this.productMatch(productName);
+      
+    }
   }
-  
 
-  // newOrderAttempt1 = () => {
-  //   const selectedProduct = 
-  //   const newRandomContact = products.splice(randomNumber, 1);
-  //   // OPCION 2
-  //   // const newRandomContact = contacts[randomNumber];
-
-  //   let updatedList = [...this.state.contactsList, newRandomContact[0]];
-  //   this.setState({contactsList: updatedList});
-  //   // escribir aca OPCION 2
-
-  //   console.log(newRandomContact[0]);
-  //   console.log(updatedList);
-  // };
-
-
-  handleSubmitProdDetails = (event) => {
-    event.preventDefault();
-    // this.setState({products:[]});
-
-    const productName = event.value ;
-    console.log("productName", productName);
-    this.props.history.push(`/productDetails?product=${productName}`)
+  searchResult = () => {
+    axios
+      .get("http://localhost:5000/product/allProducts")
+      .then(response => {
+        this.setState ({products: response.data , isLoading: false});
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
+  productMatch = (word)=>{
+    let matchesArr = [];
+    this.state.products.forEach((oneElement)=>{
+      if (oneElement.productName.includes(word)){
+        matchesArr =[...matchesArr , oneElement];
+      }
+      
+    })
+    
+    this.setState({productsMatches: matchesArr})
+  }
+
+  submitProdDetails = event => {
+    event.preventDefault();
+    // this.setState({products:[]});
+    const { value } = event.target[0];
+
+    this.props.history.push(`/productDetails?productD=${value}`);
+  };
 
   render() {
-    console.log('this.state in render', this.state)
+    console.log(this.state);
     return (
       <div>
         <h1>Search Results Page</h1>
-        
-        {
-          !this.state.isLoading 
-            ? this.state.products.map((prod) => {
-              return (
-                <div key={prod._id}>
+
+        {!this.state.isLoading ? (
+          this.state.productsMatches.map(prod => {
+            return (
+              <div key={prod._id}>
                 <p>hello capu </p>
-                <form onSubmit={this.handleSubmitProdDetails}>
-                <h3> {prod.productName}</h3>
-                <p>{prod.description}</p>
-                <img src={prod.img_url} alt="" />
-                <p>{prod.productPrice}</p>
-                  <button type="submit" value={prod.productName}>Details</button>
+                <form onSubmit={this.submitProdDetails}>
+                  <h3> {prod.productName}</h3>
+
+                  <img src={prod.img_url} alt="" />
+                  <p>{prod.productPrice}</p>
+                  <button type="submit" value={prod.productName}>
+                    Details
+                  </button>
+                  <form
+                    onSubmit={() => {
+                      return true;
+                    }}
+                  >
+                    <button type="submit">add to cart</button>
+                  </form>
                 </form>
-                </div>
-                )
-            }
-          ) : 
+              </div>
+            );
+          })
+        ) : (
           <div>loading...</div>
-        }
-          
-        
-        
-        
+        )}
       </div>
-    )
+    );
   }
 }
 

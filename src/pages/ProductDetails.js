@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
-import SearchBar from "./../components/SearchBar";
 import queryString from "query-string";
 import axios from "axios";
 
 class ProductDetails extends Component {
   state = {
-    productDetails: {} 
+    productDetails: []
   }
 
   componentDidMount() {
-    // let product_id = this.props.match.params.product_id;
-    // this.setState({
-    //   product_id: product_id
-    // })
+   
     const values = queryString.parse(this.props.location.search)
-    const productName = values.product;
+    
+    const productName = values.productD;
     this.oneProductDetails(productName);
   }
   // componentDidMount() {
@@ -29,7 +26,7 @@ class ProductDetails extends Component {
     axios.post("http://localhost:5000/product/searchPage" ,
                {productName:oneProduct}, {withCredentials: true})
     .then((response) => {
-      this.setState({productDetails:response.data}); 
+      this.setState({productDetails:response.data[0]}); 
     })
     .catch((err) => {
       console.log(err);
@@ -37,13 +34,20 @@ class ProductDetails extends Component {
   }
 
   render() {
+    console.log("after render",this.state.productDetails.productName);
     return (
       <div>
-        <h1>ProductDetails</h1>
-        <h2>Title of Product </h2>
         
-        <h4>{this.state.productDetails}</h4>
-        {/* <h1>Welcome {this.props.user.username}</h1> //=>this should be correct */}
+        
+        <h1>{this.state.productDetails.productName}</h1>
+        <img src={this.state.productDetails.img_url} />
+        <p>{this.state.productDetails.description}</p>
+        <p>{this.state.productDetails.productPrice}</p>
+          <form onSubmit={()=>{return true}}>
+          <button type="submit">add to cart</button>
+          <input type="number" min="1" max="30"></input>
+          </form>
+        
       </div>
     );
   }
