@@ -23,7 +23,7 @@
   padding: 20px;
   
   z-index: 1;
-  
+
   -webkit-user-select: none;
   user-select: none;
 }
@@ -46,18 +46,17 @@
 #menuToggle input
 {
   display: block;
-  width: 40px;
-  height: 32px;
+  width: 46px;
+  height: 26px;
   position: absolute;
-  top: 20px;
+  top: 14px;
   left: 10px;
   
   cursor: pointer;
   
   opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
+  z-index: 3; /* and place it over the hamburger */
+
 }
 
 

@@ -20,10 +20,11 @@ class Navbar extends Component {
       <nav className="navbar" id="navBar" role="navigation">
         
         <div id="menuToggle">
-          <input type ="checkbox" />
+        <input type ="checkbox" />
           <span></span>
           <span></span>
           <span></span>
+
 
           <ul id="menu">
 
