@@ -14,8 +14,7 @@ class AdminAddProduct extends React.Component {
       // <form onSubmit={this.props.productByName(this.state.productName)}>
         <h1>Add Product Page</h1>
 
-    
-     
+  
     )
   }
 }
