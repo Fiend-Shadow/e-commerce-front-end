@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withAuth } from "./../lib/Auth";
-import Private      from "./Private";
 import AdminPage from "./AdminPage";
 import Home from "./Home";
 

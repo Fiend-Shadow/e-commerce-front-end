@@ -63,12 +63,13 @@ class App extends Component {
         
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/searchPage" component={SearchPage} />
+          <Route exact path="/productDetails" component={ProductDetails}/>
 
           {/* Not logged in routes */}
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
-          <AnonRoute exact path="/searchPage" component={SearchPage} />
-          <AnonRoute exact path="/productDetails" component={ProductDetails}/>
+
 
           {/* User routes */}
           <PrivateRoute exact path="/profilePage" component={ProfilePage} />
