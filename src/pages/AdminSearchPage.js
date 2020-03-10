@@ -45,16 +45,6 @@ class SearchPage extends Component {
       });
   };
 
-  // searchProduct = (searchValue) =>{
-  //   const filterProductList = this.state.productsList.filter(element => {
-  //     let lowProduct = element.name.toLowerCase();
-  //     let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
-  //     return lowProductIncludes;
-  //   });
-    
-  //   this.setState({filterProductList: filterProductList});
-  // };
-
 
   productMatch = (word)=>{
     let matchesArr = [];
@@ -81,12 +71,12 @@ class SearchPage extends Component {
     console.log(this.state);
     return (
       <div>
-        <h1>Search Results Page</h1>
+        <h1>Admin Search Page</h1>
 
         {!this.state.isLoading ? (
           this.state.productsMatches.map(prod => {
             return (
-              <div key={prod._id}>
+              <div key={prod._id}>                
                 <form onSubmit={this.submitProdDetails}>
                   <h3> {prod.productName} </h3>
 
@@ -114,4 +104,4 @@ class SearchPage extends Component {
   }
 }
 
-export default SearchPage;
+export default AdminSearchPage;
