@@ -13,7 +13,6 @@ class AdminAddProduct extends React.Component {
     return (
       // <form onSubmit={this.props.productByName(this.state.productName)}>
         <h1>Add Product Page</h1>
-
   
     )
   }
@@ -57,4 +56,4 @@ class AdminAddProduct extends React.Component {
     </form> */}
 
     
-export default withAuth(withRouter(SearchBar));
+export default withAuth(withRouter(AdminAddProduct));
