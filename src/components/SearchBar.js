@@ -5,15 +5,17 @@ import {Link} from "react-router-dom";
 import SearchPage from "./../pages/SearchPage";
 import { withRouter } from "react-router-dom";
 import "./SearchBar.css";
+import products from '.././'
 
 class SearchBar extends React.Component {
     state = {
-      productName: ""
+      productName: "",
+      productsList: []
     };
 
     // componentDidMount() {
     // }    
-    searchProduct = searchValue =>{
+    searchProduct = (searchValue) =>{
     const filterProductList = this.state.productsList.filter(element => {
       let lowProduct = element.name.toLowerCase();
       let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
@@ -35,12 +37,11 @@ class SearchBar extends React.Component {
 
   handleSubmitSearch = (event) => {
     event.preventDefault();
-    // this.setState();
     let {productName} = this.state ;
     
     this.props.history.push(`/searchPage?product=${productName}`);
+    // this.searchProduct();
     
-    // this.setState({});
   };
 
   render () {
