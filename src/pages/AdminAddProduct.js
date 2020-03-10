@@ -11,8 +11,14 @@ class AdminAddProduct extends React.Component {
 
   render () {
     return (
-      // <form onSubmit={this.props.productByName(this.state.productName)}>
+      <div>
+     {/* <form onSubmit={this.props.productByName(this.state.productName)}> */}
         <h1>Add Product Page</h1>
+
+         <Link to={"/adminPage"} className="nav-btn" onClick={this.props.show}>
+          <button>Back to Admin Page</button>
+        </Link>
+      </div>
   
     )
   }

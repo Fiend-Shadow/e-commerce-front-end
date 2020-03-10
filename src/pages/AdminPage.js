@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
+import { Link } from "react-router-dom";
+
 
 class AdminPage extends Component {
    state = {
@@ -31,9 +33,9 @@ class AdminPage extends Component {
         <h1>AdminPage</h1>
         <h2>Hello Admin!</h2>
 
-        <form>
-          <button>Create Product</button>
-        </form>        
+        <Link to={"/adminAddProduct"} className="nav-btn" onClick={this.props.show}>
+          <button>Add Prouct</button>
+        </Link>     
       </div>
     )
   }
