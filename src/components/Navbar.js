@@ -51,25 +51,22 @@ class Navbar extends Component {
                   <li>Add Prouct</li>
                 </Link>
 
-
-
                 <p>username: {user.username}</p>
                 <button onClick={logout}>Logout</button>
                 </>
 
               ) : (
                 <>
-                  <Link to={"/profilePage"} className="nav-btn" onClick={this.props.show}>
-                  <li>Profile</li>
-                  </Link>
                 </>
               )            
             }
 
-
-            
             {isLoggedIn && !user.isAdmin ? (
               <>
+                <Link to={"/profilePage"} className="nav-btn" onClick={this.props.show}>
+                  <li>Profile</li>
+                </Link>
+
                 <p>username: {user.username}</p>
                 <button onClick={logout}>Logout</button>
 
@@ -80,8 +77,13 @@ class Navbar extends Component {
               </>
 
             ) : (
+              <>          
+              </>
+            )}
+
+            {!isLoggedIn ? (
               <>
-                <Link to="/login">
+              <Link to="/login">
                   <button className="navbar-button" onClick={this.props.hide}>Login</button>{" "}
                 </Link>
                 <br />
@@ -89,7 +91,10 @@ class Navbar extends Component {
                   <button className="navbar-button" onClick={this.props.hide}>Sign Up</button>{" "}
                 </Link>
               </>
-            )}
+            ) : (
+              <>
+              </>
+            )} 
       
 
           </ul>    
