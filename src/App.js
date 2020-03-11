@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 // import "./components/Navbar.css"
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import axios from "axios";
 import products from "./products.json";
 
@@ -18,7 +18,7 @@ import SearchPage from "./pages/SearchPage";
 import MyCartPage from "./pages/MyCartPage";
 import ProductDetails from "./pages/ProductDetails";
 import SearchBar from "./components/SearchBar";
-import Axios from "axios";
+
 
 // import products from './somefile.json';
 // import Products from './ProductsComponentFile';
@@ -68,9 +68,9 @@ class App extends Component {
           <AnonRoute exact path="/signup" component={Signup} />
           <AnonRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/profilePage" component={ProfilePage} />
-          <AnonRoute exact path="/searchPage" component={SearchPage} />
+          <Route exact path="/searchPage" component={SearchPage} />
           <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
-          <AnonRoute exact path="/productDetails" component={ProductDetails}/>
+          <Route exact path="/productDetails" component={ProductDetails}/>
 
         {/* <PrivateRoute exact path="/private" component={Private} /> */}
         </Switch>

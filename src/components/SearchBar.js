@@ -1,8 +1,4 @@
-import React, { Component } from "react";
-import searchService from "./../lib/search-service";
-import Axios from "axios";
-import {Link} from "react-router-dom";
-import SearchPage from "./../pages/SearchPage";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import "./SearchBar.css";
 

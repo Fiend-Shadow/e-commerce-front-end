@@ -13,7 +13,7 @@ const withAuth = WrappedComponent => {
         <Consumer>
           {
             (value) => {
-            {/* const { login, signup, logout, user, isLoggedIn } = value; */}
+            
 
             return (
               <WrappedComponent
