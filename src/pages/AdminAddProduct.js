@@ -36,9 +36,9 @@ class AdminAddProduct extends React.Component {
   };
 
   handlePhotoChange = event => {
-    console.log('event', event.target.file)
+    console.log('event', event.target.files)
     
-    const file = event.target.file[0];
+    const file = event.target.files[0];
     const uploadData = new FormData();
     uploadData.append('photo', file);
     this.setState ({img_file: uploadData});
