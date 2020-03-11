@@ -13,6 +13,11 @@ class Navbar extends Component {
   //   return this.props.logout, this.props.hide;
   // }
 
+  hideMenuOnClick =() => {
+
+  }
+
+  
   render() {
     const { user, logout, isLoggedIn } = this.props;  
 
