@@ -1,24 +1,17 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { withAuth } from "./../lib/Auth";
 import "./SearchBar.css";
+import products from '.././'
 
 class SearchBar extends React.Component {
     state = {
-      productName: ""
+      productName: "",
+      productsList: []
     };
 
     // componentDidMount() {
-    // }    
-    searchProduct = searchValue =>{
-    const filterProductList = this.state.productsList.filter(element => {
-      let lowProduct = element.name.toLowerCase();
-      let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
-      return lowProductIncludes;
-    });
-    
-    this.setState({filterProductList: filterProductList});
-  };
-  
+    // }  
 
   //Changes handler on SearchBar
   handleChange = (event)=> {
@@ -31,12 +24,11 @@ class SearchBar extends React.Component {
 
   handleSubmitSearch = (event) => {
     event.preventDefault();
-    // this.setState();
     let {productName} = this.state ;
     
     this.props.history.push(`/searchPage?product=${productName}`);
+    // this.searchProduct();
     
-    // this.setState({});
   };
 
   render () {
@@ -58,4 +50,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default withRouter(SearchBar);
+export default withAuth(withRouter(SearchBar));

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import queryString from "query-string";
-import "./../components/SearchPage.css";
+
 
 class SearchPage extends Component {
   state = {
@@ -17,7 +17,9 @@ class SearchPage extends Component {
 
     const productName = values.product;
     this.searchResult();
-    this.productMatch(productName);    
+     this.productMatch(productName);
+    
+    
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -25,34 +27,23 @@ class SearchPage extends Component {
       const values = queryString.parse(this.props.location.search);
 
       const productName = values.product;
-
+      
       this.searchResult();
-      this.productMatch(productName);      
+      this.productMatch(productName);
+      
     }
   }
-
 
   searchResult = () => {
     axios
       .get(process.env.REACT_APP_API_URL+"/product/allProducts")
       .then(response => {
-        this.setState({ products: response.data, isLoading: false });
+        this.setState ({products: response.data , isLoading: false});
       })
       .catch(err => {
         console.log(err);
       });
   };
-
-  
-  // searchProduct = (searchValue) =>{
-  //   const filterProductList = this.state.productsList.filter(element => {
-  //     let lowProduct = element.name.toLowerCase();
-  //     let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
-  //     return lowProductIncludes;
-  //   });
-    
-  //   this.setState({filterProductList: filterProductList});
-  // };
 
 
   productMatch = (word)=>{
@@ -62,11 +53,11 @@ class SearchPage extends Component {
       if (oneElement.productName.includes(word)){
         matchesArr =[...matchesArr , oneElement];
       }
-    });
-
-    this.setState({ productsMatches: matchesArr });
-  };
-
+      
+    })
+    
+    this.setState({productsMatches: matchesArr})
+  }
 
   submitProdDetails = event => {
     event.preventDefault();
@@ -76,41 +67,31 @@ class SearchPage extends Component {
     this.props.history.push(`/productDetails?productD=${value}`);
   };
 
-  addToCart = event => {
-    event.preventDefault();
-    const { value } = event.target[0];
-    axios
-      .post("http://localhost:5000/order/create", { productId: value }, {withCredentials: true})
-      .then(result => {
-        console.log("result", result);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   render() {
+    console.log(this.state);
     return (
       <div>
-        <h1>Search Results Page</h1>
+        <h1>Admin Search Page</h1>
 
         {!this.state.isLoading ? (
           this.state.productsMatches.map(prod => {
             return (
-              <div key={prod._id}>
+              <div key={prod._id}>                
                 <form onSubmit={this.submitProdDetails}>
                   <h3> {prod.productName} </h3>
 
-                  <img src={prod.img_url} alt="" id="search-img" />
+                  <img src={prod.img_url} alt="" />
                   <p>{prod.productPrice}</p>
                   <button type="submit" value={prod.productName}>
                     Details
                   </button>
-                </form>
-                <form onSubmit={this.addToCart}>
-                  <button type="submit" value={prod._id}>
-                    add to cart
-                  </button>
+                  <form
+                    onSubmit={() => {
+                      return true;
+                    }}
+                  >
+                    <button type="submit">add to cart</button>
+                  </form>
                 </form>
               </div>
             );
@@ -123,4 +104,4 @@ class SearchPage extends Component {
   }
 }
 
-export default SearchPage;
+export default AdminSearchPage;

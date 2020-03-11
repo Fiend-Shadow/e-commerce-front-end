@@ -18,8 +18,10 @@ import SearchPage from "./pages/SearchPage";
 import MyCartPage from "./pages/MyCartPage";
 import ProductDetails from "./pages/ProductDetails";
 import SearchBar from "./components/SearchBar";
-
-
+import AdminPage from "./pages/AdminPage";
+import AdminAddProduct from "./pages/AdminAddProduct";
+import AdminEditProduct from "./pages/AdminEditProduct";
+import CheckIfAdmin from "./pages/CheckIfAdmin";
 // import products from './somefile.json';
 // import Products from './ProductsComponentFile';
 
@@ -31,8 +33,6 @@ class App extends Component {
     showSearchBar: true
   };
 
-
-
   hideSearchBar = () => {
     this.setState({ showSearchBar: false });
   };
@@ -42,8 +42,7 @@ class App extends Component {
   };
 
   searchResult = (oneProduct) => {
-    // e.preventDefault();
-    
+    // e.preventDefault();    
 
     axios.post("http://localhost:5000/product/searchPage" ,
                {productName:oneProduct}, {withCredentials: true})
@@ -60,18 +59,27 @@ class App extends Component {
     return (
       <div className="container">
         <Navbar hide={this.hideSearchBar} show={this.showSearchBar} className="nav-bar"/>
-        {this.state.showSearchBar ? <SearchBar productByName = {this.searchResult}/> :console.log("aslkdef") }
+        {this.state.showSearchBar ? <SearchBar productByName = {this.searchResult}/> :console.log("This is searchResult function on App.") }
         
         <Switch>
           <Route exact path="/" component={Home} />
-
-          <AnonRoute exact path="/signup" component={Signup} />
-          <AnonRoute exact path="/login" component={Login} />
-          <PrivateRoute exact path="/profilePage" component={ProfilePage} />
           <Route exact path="/searchPage" component={SearchPage} />
-          <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
           <Route exact path="/productDetails" component={ProductDetails}/>
 
+          {/* Not logged in routes */}
+          <AnonRoute exact path="/signup" component={Signup} />
+          <AnonRoute exact path="/login" component={Login} />
+
+
+          {/* User routes */}
+          <PrivateRoute exact path="/profilePage" component={ProfilePage} />
+          <PrivateRoute exact path="/myCartPage" component={MyCartPage} />
+          <PrivateRoute exact path="/private" component={CheckIfAdmin}/>
+          
+          {/* Admin routes */}
+          <PrivateRoute exact path= "/adminPage" component={AdminPage} />
+          <PrivateRoute exact path= "/adminAddProduct" component={AdminAddProduct} />
+          <PrivateRoute exact path= "/adminEditProduct" component={AdminEditProduct} />
         {/* <PrivateRoute exact path="/private" component={Private} /> */}
         </Switch>
       </div>

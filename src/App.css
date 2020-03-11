@@ -3,7 +3,19 @@ html, body {
   padding: 0;
   display:flex;
   flex-direction: column;
+  color: 
 }
+
+h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-family: 'Nunito';
+  font-weight: 400;
+}
+
 
 .App {
   padding: 20px;
