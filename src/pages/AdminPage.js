@@ -34,8 +34,13 @@ class AdminPage extends Component {
         <h2>Hello Admin!</h2>
 
         <Link to={"/adminAddProduct"} className="nav-btn" onClick={this.props.show}>
-          <button>Add Prouct</button>
-        </Link>     
+          <button>Add Product</button>
+        </Link>
+
+        <Link to={"/adminEditProduct"} className="nav-btn" onClick={this.props.show}>
+          <button>Edit Products</button>
+        </Link> 
+
       </div>
     )
   }
