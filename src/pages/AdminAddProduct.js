@@ -5,7 +5,21 @@ import { withRouter } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
 
 
-class AdminAddProduct extends React.Component {   
+class AdminAddProduct extends React.Component {
+
+  componentDidMount() {
+    
+  }
+
+  componentDidUpdate() {
+
+  }
+
+  addProductFunc = () => {
+    
+    
+  }
+
 
   render () {
     return (
@@ -17,10 +31,10 @@ class AdminAddProduct extends React.Component {
         <form action="/adminAddProduct" method="post" enctype="multipart/form-data">
 
         <label for="">Product name:</label>
-        <input type="text" name="productName" required class="form-control" placeholder="Enter Product Name" autocomplete="off" />
+        <input type="text" name="productName" placeholder="Enter Product Name" autocomplete="off" />
         
         <label for="">Category:</label>
-          <input list="type_options" name="category" required class="form-control" placeholder="select"/>
+          <input list="type_options" name="category" placeholder="select"/>
           
           <datalist id="categories_options">
               <option value="Beauty">Beauty</option>
@@ -32,20 +46,24 @@ class AdminAddProduct extends React.Component {
 
 
           <label for="">Product description:</label>
-          <input type="textarea" name="description" class="form-control" autocomplete="off"/>
+          <input type="textarea" name="description" autocomplete="off"/>
 
           <label for="photo">Upload Photo JPG or PNG format only:</label>
-          <input type="file" name="photo" class="form-control-file" autocomplete="off"/>
+          <input type="file" name="photo" autocomplete="off"/>
 
-          <button type="submit" class="btn btn-primary">Create Product!</button>
+          <button type="submit">Create Product!</button>
 
         </form>
 
         <br></br>
 
-        <Link to={"/adminEditProduct"} className="nav-btn" onClick={this.props.show}>
+        <Link to={"/adminEditProduct"} className="nav-btn" onClick={this.addProductFunc()}>
           <button>Go to Edit Products</button>
-        </Link> 
+        </Link>
+
+        {/* <Link to={"/adminEditProduct"} className="nav-btn" onClick={this.props.show}>
+          <button>Go to Edit Products</button>
+        </Link>  */}
 
         <br></br>
 

@@ -17,9 +17,7 @@ class SearchPage extends Component {
 
     const productName = values.product;
     this.searchResult();
-     this.productMatch(productName);
-    
-    
+    this.productMatch(productName);    
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -29,10 +27,10 @@ class SearchPage extends Component {
       const productName = values.product;
       
       this.searchResult();
-      this.productMatch(productName);
-      
+      this.productMatch(productName);      
     }
   }
+
 
   searchResult = () => {
     axios
@@ -45,6 +43,7 @@ class SearchPage extends Component {
       });
   };
 
+  
   // searchProduct = (searchValue) =>{
   //   const filterProductList = this.state.productsList.filter(element => {
   //     let lowProduct = element.name.toLowerCase();
@@ -69,6 +68,7 @@ class SearchPage extends Component {
     this.setState({productsMatches: matchesArr})
   }
 
+
   submitProdDetails = event => {
     event.preventDefault();
     // this.setState({products:[]});
@@ -76,6 +76,7 @@ class SearchPage extends Component {
 
     this.props.history.push(`/productDetails?productD=${value}`);
   };
+
 
   render() {
     console.log(this.state);

@@ -42,8 +42,7 @@ class App extends Component {
   };
 
   searchResult = (oneProduct) => {
-    // e.preventDefault();
-    
+    // e.preventDefault();    
 
     axios.post("http://localhost:5000/product/searchPage" ,
                {productName:oneProduct}, {withCredentials: true})
@@ -60,7 +59,7 @@ class App extends Component {
     return (
       <div className="container">
         <Navbar hide={this.hideSearchBar} show={this.showSearchBar} className="nav-bar"/>
-        {this.state.showSearchBar ? <SearchBar productByName = {this.searchResult}/> :console.log("aslkdef") }
+        {this.state.showSearchBar ? <SearchBar productByName = {this.searchResult}/> :console.log("This is searchResult function on App.") }
         
         <Switch>
           <Route exact path="/" component={Home} />
