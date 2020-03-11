@@ -12,15 +12,18 @@ class AdminAddProduct extends React.Component {
     description: "",
     category: "",
     quantity: 0,
-    img_file: ""
+    img_url: undefined
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const {productName, productPrice, description, category, quantity, img_url} = this.state
+    const {productName, productPrice, description, category, quantity, photo} = this.state
+
+    console.log('photo', photo)
+    
 
     axios.post("http://localhost:5000/product/adminAddProduct",
-    {productName, productPrice, description, category, quantity, img_url}, {withCredentials: true})
+    {productName, productPrice, description, category, quantity, photo}, {withCredentials: true, headers: { 'Content-Type': 'multipart/form-data' }})
       .then((result) => {
         console.log('result from handleFormSubmit',result);        
         return result; 
@@ -36,12 +39,22 @@ class AdminAddProduct extends React.Component {
   };
 
   handlePhotoChange = event => {
-    console.log('event', event.target.files)
-    
     const file = event.target.files[0];
     const uploadData = new FormData();
-    uploadData.append('photo', file);
-    this.setState ({img_file: uploadData});
+    uploadData.append('file', file);
+
+
+    axios.post(
+      "http://localhost:5000/product/image",
+      file, 
+      {withCredentials: true, 'Content-Type': 'multipart/form-data' })
+      .then((response) => {
+        this.setState({ img_url: response.data})
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    
   };
 
 
@@ -81,7 +94,7 @@ class AdminAddProduct extends React.Component {
           <input type="textarea" name="description" value = {description} onChange={this.handleChange} autoComplete="off"/>
 
           <label>Upload Photo JPG or PNG format only:</label>
-          <input type="file" name="photo" onChange={this.handlePhotoChange}/>
+          <input type="file" name="file" onChange={this.handlePhotoChange}/>
        
 
           <button type="submit">Create Product!</button>
