@@ -12,7 +12,17 @@ class Navbar extends Component {
   //   return this.props.logout, this.props.hide;
   // }
 
-  hideMenuOnClick = () => {};
+
+  hideMenuOnClick = () => {
+    const navBar = document.getElementById("checkBoxId");
+    // const menuToggleLink = document.querySelector("#menu");
+    navBar.checked = false;
+    // menuToggleLink.style.transition = "none";
+  };
+  logoutAndHide = () => {
+    this.props.logout();
+    this.hideMenuOnClick();
+  }
 
   render() {
     const { user, logout, isLoggedIn } = this.props;
@@ -20,17 +30,17 @@ class Navbar extends Component {
     return (
       <nav className="navbar" id="navBar" role="navigation">
         <div id="menuToggle">
-          <input type="checkbox" />
+          <input type="checkbox" id="checkBoxId"/>
           <span></span>
           <span></span>
           <span></span>
 
           <ul id="menu">
-            <Link to={"/"} className="nav-btn" onClick={this.props.show}>
+            <Link to={"/"} className="nav-btn" onClick={this.hideMenuOnClick}>
               <li>Home</li>
             </Link>
 
-            <Link to={"#"} className="nav-btn" onClick={this.props.show}>
+            <Link to={"#"} className="nav-btn" onClick={this.hideMenuOnClick}>
               <li>Categories</li>
             </Link>
 
@@ -39,7 +49,7 @@ class Navbar extends Component {
                 <Link
                   to={"/adminPage"}
                   className="nav-btn"
-                  onClick={this.props.show}
+                  onClick={this.hideMenuOnClick}
                 >
                   <li>Admin Page</li>
                 </Link>
@@ -47,13 +57,13 @@ class Navbar extends Component {
                 <Link
                   to={"/adminAddProduct"}
                   className="nav-btn"
-                  onClick={this.props.show}
+                  onClick={this.hideMenuOnClick}
                 >
                   <li>Add Prouct</li>
                 </Link>
 
                 <p>username: {user.username}</p>
-                <button onClick={logout}>Logout</button>
+                <button onClick={this.logoutAndHide}>Logout</button>
                 </>
 
               ) : (
@@ -64,17 +74,17 @@ class Navbar extends Component {
 
             {isLoggedIn && !user.isAdmin ? (
               <>
-                <Link to={"/profilePage"} className="nav-btn" onClick={this.props.show}>
+                <Link to={"/profilePage"} className="nav-btn" onClick={this.hideMenuOnClick}>
                   <li>Profile</li>
                 </Link>
 
                 <p>username: {user.username}</p>
-                <button onClick={logout}>Logout</button>
+                <button onClick={this.logoutAndHide}>Logout</button>
 
                 <Link
                   to={"/myCartPage"}
                   className="nav-btn"
-                  onClick={this.props.show}
+                  onClick={this.hideMenuOnClick}
                 >
                   <h4>MyCartPage</h4>
                 </Link>
@@ -87,11 +97,11 @@ class Navbar extends Component {
             {!isLoggedIn ? (
               <>
               <Link to="/login">
-                  <button className="navbar-button" onClick={this.props.hide}>Login</button>{" "}
+                  <button className="navbar-button" onClick={this.hideMenuOnClick}>Login</button>{" "}
                 </Link>
                 <br />
                 <Link to="/signup">
-                  <button className="navbar-button" onClick={this.props.hide}>
+                  <button className="navbar-button" onClick={this.hideMenuOnClick}>
                     Sign Up
                   </button>{" "}
                 </Link>
