@@ -54,21 +54,20 @@ class Navbar extends Component {
 
                 <p>username: {user.username}</p>
                 <button onClick={logout}>Logout</button>
-              </>
-            ) : (
-              <>
-                <Link
-                  to={"/profilePage"}
-                  className="nav-btn"
-                  onClick={this.props.show}
-                >
-                  <li>Profile</li>
-                </Link>
-              </>
-            )}
+                </>
+
+              ) : (
+                <>
+                </>
+              )            
+            }
 
             {isLoggedIn && !user.isAdmin ? (
               <>
+                <Link to={"/profilePage"} className="nav-btn" onClick={this.props.show}>
+                  <li>Profile</li>
+                </Link>
+
                 <p>username: {user.username}</p>
                 <button onClick={logout}>Logout</button>
 
@@ -81,11 +80,14 @@ class Navbar extends Component {
                 </Link>
               </>
             ) : (
+              <>          
+              </>
+            )}
+
+            {!isLoggedIn ? (
               <>
-                <Link to="/login">
-                  <button className="navbar-button" onClick={this.props.hide}>
-                    Login
-                  </button>{" "}
+              <Link to="/login">
+                  <button className="navbar-button" onClick={this.props.hide}>Login</button>{" "}
                 </Link>
                 <br />
                 <Link to="/signup">
@@ -94,8 +96,14 @@ class Navbar extends Component {
                   </button>{" "}
                 </Link>
               </>
-            )}
-          </ul>
+            ) : (
+              <>
+              </>
+            )} 
+      
+
+          </ul>    
+
         </div>
       </nav>
     );

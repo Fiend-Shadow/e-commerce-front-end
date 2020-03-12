@@ -35,12 +35,19 @@ class ProfilePage extends Component {
     return (
       <>
       {this.state.showForm ? (
+        <>
         <form onSubmit={this.editUser}>
         <input type="text" id="username" name="username" placeholder={this.state.user.username}/>
         <input type="text" id="email" name="email" placeholder={this.state.user.email}/>
         <input type="text" id="password" name="password" placeholder={this.state.user.password}/>
         <button type="submit">submit edit</button>
         </form>
+
+        <form onSubmit={this.toggleForm}>
+        <button>Cancel</button>
+        </form>
+        </>
+
       ) : (
         <div>
        <h1>ProfilePage</h1>
