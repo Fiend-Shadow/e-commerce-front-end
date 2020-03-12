@@ -14,10 +14,6 @@ class AdminAddProduct extends React.Component {
     img_url: undefined
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    
-    
-  }
 
 
   handleFormSubmit = event => {
@@ -47,6 +43,7 @@ class AdminAddProduct extends React.Component {
       .catch(err => {
         console.log(err);
       });
+      this.props.history.push("/AdminAddProduct");
   };
 
   handleChange = event => {
