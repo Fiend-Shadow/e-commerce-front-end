@@ -15,6 +15,7 @@ class MyCartPage extends Component {
     axios
       .get("http://localhost:5000/order/allOrders", { withCredentials: true })
       .then(response => {
+        console.log(response.data)
         response.data.map(oneOrder => {
           if (!oneOrder.isDone) {
             let productArr = [];
@@ -31,7 +32,15 @@ class MyCartPage extends Component {
       });
   };
 
-  orderIsDone = () => {};
+  orderIsDone = (event) => {
+    event.preventDefault();
+    axios.put("http://localhost:5000/order/oneOrder" , {orderId : this.state.orderId} ,{withCredentials:true})
+    .then((result) => {
+      
+    }).catch((err) => {
+      
+    });
+  };
   render() {
     return (
       <div>
@@ -51,7 +60,7 @@ class MyCartPage extends Component {
             );
           })}
         </div>
-        <form>
+        <form onSubmit={this.orderIsDone}>
           <button type="submit">proceed to payment</button>
         </form>
       </div>
