@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   display:flex;
   flex-direction: column;
-  color: 
+  justify-content: center;
 }
 
 h1 {
@@ -16,7 +16,6 @@ h2 {
   font-weight: 400;
 }
 
-
 .App {
   padding: 20px;
 }
@@ -24,6 +23,16 @@ h2 {
 .nav-bar {
   margin-top: 50px;
 }
+
+.btn-for-links {
+
+}
+
+.btn-for-submits {
+
+}
+
+
 /* nav.navbar { 
   display: flex;
   padding: 0px 20px;

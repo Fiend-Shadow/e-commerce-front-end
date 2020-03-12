@@ -1,0 +1,20 @@
+#home-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Questrial', sans-serif;
+
+}
+
+#hero-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+
+
+}
+
+

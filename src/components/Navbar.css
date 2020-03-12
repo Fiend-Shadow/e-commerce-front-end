@@ -18,7 +18,7 @@
   /* position: relative; */
   top: 50px;
   left: 50px;
-  background-color: #260101;
+  background-color:#455159;
   
   padding: 20px;
   
@@ -32,14 +32,14 @@
 #menuToggle a
 {
   text-decoration: none;
-  color: #260101;
-  font-family: 'Quicksand';
+  color: #181D26;
+  font-family: 'Questrial';
   transition: color 0.3s ease;
 }
 
 #menuToggle a:hover
 {
-  color: #5BA698;
+  color: #7394BF;
 }
 
 
@@ -114,6 +114,20 @@
 #menu li{
 }
 
+#menu button {
+  padding:8px 10px;
+  border-radius: 5px;
+  background-color: #455159;
+  color: rgb(223, 223, 223);
+  font-family: 'Open Sans', sans-serif;
+  /* letter-spacing: 0,3px; */
+}
+
+#menu button:hover {
+  color: rgb(156, 183, 218);
+}
+
+
 
 #menu
 {
@@ -123,7 +137,7 @@
   padding: 50px;
   padding-top: 125px;
   color: #260101;
-  background-color: rgba(242, 213, 196, 0.95);
+  background-color: rgba(242, 213, 196, 0.97);
   font-family: 'Nunito';
   
   list-style-type: none;
@@ -160,3 +174,4 @@
 .navbar-button:hover {
   color: white;
 }
+

@@ -1,9 +1,9 @@
 import React from 'react';
-
+import "./Home.css"
 
 function Home() {
   return (
-    <div>
+    <div id="home-container">
       <h1>Shop Mate</h1>
       <div id="hero-container">
         <h3>Expect More. Pay Less .</h3>

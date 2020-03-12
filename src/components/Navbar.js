@@ -59,7 +59,7 @@ class Navbar extends Component {
                   className="nav-btn"
                   onClick={this.hideMenuOnClick}
                 >
-                  <li>Add Prouct</li>
+                  <li>Add Product</li>
                 </Link>
 
                 <p>username: {user.username}</p>

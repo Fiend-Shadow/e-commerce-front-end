@@ -1,3 +1,20 @@
 #search-bar-container {
+  margin-left: 30px;
+  margin-right: auto;
   margin-top: 50px;
+  font-family: 'Oxygen', sans-serif;
+}
+
+#search-bar-container button {
+  padding:5px 10px;
+  border-radius: 5px;
+  background-color: #455159;
+  color: rgb(223, 223, 223);
+  font-family: 'Open Sans', sans-serif;
+}
+
+#search-bar-container input {
+  padding:5px 10px;
+  margin-left: 8px;
+
 }
