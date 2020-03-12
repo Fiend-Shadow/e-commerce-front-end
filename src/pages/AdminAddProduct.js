@@ -14,6 +14,11 @@ class AdminAddProduct extends React.Component {
     img_url: undefined
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    
+    
+  }
+
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -43,14 +48,12 @@ class AdminAddProduct extends React.Component {
         console.log(err);
       });
   };
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+
   // this method handles just the file upload
   handleFileUpload = e => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
