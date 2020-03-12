@@ -29,7 +29,7 @@ class AdminAddProduct extends React.Component {
 
     axios
       .post(
-        "http://localhost:5000/product/adminAddProduct",
+        process.env.REACT_APP_API_URL+"/product/adminAddProduct",
         { productName, productPrice, description, category, quantity, img_url },
         {
           withCredentials: true,

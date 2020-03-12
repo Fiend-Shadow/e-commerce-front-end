@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 class MyCartPage extends Component {
   state = {
@@ -10,10 +11,14 @@ class MyCartPage extends Component {
   componentDidMount() {
     this.getOrderId();
   }
+  handlePaymentBtn = (event)=>{
+    this.orderIsDone(event);
+    this.props.history.push("/paymentPage");
+  }
 
   getOrderId = () => {
     axios
-      .get("http://localhost:5000/order/allOrders", { withCredentials: true })
+      .get(process.env.REACT_APP_API_URL+"/order/allOrders", { withCredentials: true })
       .then(response => {
         console.log(response.data)
         response.data.map(oneOrder => {
@@ -34,19 +39,22 @@ class MyCartPage extends Component {
 
   orderIsDone = (event) => {
     event.preventDefault();
-    axios.put("http://localhost:5000/order/oneOrder" , {orderId : this.state.orderId} ,{withCredentials:true})
-    .then((result) => {
-      
+    axios.put(process.env.REACT_APP_API_URL+"/order/oneOrder" , {orderId : this.state.orderId} ,{withCredentials:true})
+    .then((response) => {
+      // console.log(response);
     }).catch((err) => {
-      
+      console.log(err);
     });
   };
   render() {
+    
     return (
       <div>
         <h1>MyCartPage</h1>
 
         <h3> Current Orders</h3>
+        {!this.state.orderProducts.length==0 ? 
+        <>
         <div>
           {this.state.orderProducts.map(oneProduct => {
             return (
@@ -60,12 +68,19 @@ class MyCartPage extends Component {
             );
           })}
         </div>
-        <form onSubmit={this.orderIsDone}>
+        <form onSubmit={this.handlePaymentBtn}>
           <button type="submit">proceed to payment</button>
         </form>
+        </>
+        :
+          <p>
+            There is no Current Orders
+          </p>
+        }
+       
       </div>
     );
   }
 }
 
-export default withAuth(MyCartPage);
+export default withRouter(withAuth(MyCartPage));

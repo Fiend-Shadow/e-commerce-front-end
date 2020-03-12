@@ -16,8 +16,7 @@ class SearchPage extends Component {
     const values = queryString.parse(this.props.location.search);
 
     const productName = values.product;
-    this.searchResult();
-    this.productMatch(productName);    
+    this.searchResult(productName);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -26,47 +25,35 @@ class SearchPage extends Component {
 
       const productName = values.product;
 
-      this.searchResult();
-      this.productMatch(productName);      
+      this.searchResult(productName);
+      // this.productMatch(productName);
     }
   }
 
-
-  searchResult = () => {
+  searchResult = productName => {
     axios
-      .get(process.env.REACT_APP_API_URL+"/product/allProducts")
+      .get(process.env.REACT_APP_API_URL + "/product/allProducts")
       .then(response => {
-        this.setState({ products: response.data, isLoading: false });
+        const productsMatches = this.productMatch(productName, response.data);
+        
+        this.setState({ products: response.data, productsMatches ,isLoading: false });
       })
       .catch(err => {
         console.log(err);
       });
   };
 
-  
-  // searchProduct = (searchValue) =>{
-  //   const filterProductList = this.state.productsList.filter(element => {
-  //     let lowProduct = element.name.toLowerCase();
-  //     let lowProductIncludes = lowProduct.includes(searchValue.toLowerCase());
-  //     return lowProductIncludes;
-  //   });
-    
-  //   this.setState({filterProductList: filterProductList});
-  // };
-
-
-  productMatch = (word)=>{
+  productMatch = (word, products) => {
     let matchesArr = [];
-    this.state.products.forEach((oneElement)=>{
-
-      if (oneElement.productName.includes(word)){
-        matchesArr =[...matchesArr , oneElement];
+    console.log(products);
+    products.forEach(oneElement => {
+      if (oneElement.productName.includes(word)) {
+        matchesArr = [...matchesArr, oneElement];
       }
     });
 
-    this.setState({ productsMatches: matchesArr });
+    return matchesArr;
   };
-
 
   submitProdDetails = event => {
     event.preventDefault();
@@ -78,9 +65,14 @@ class SearchPage extends Component {
 
   addToCart = event => {
     event.preventDefault();
+    console.log(event.target[0]);
     const { value } = event.target[0];
     axios
-      .post("http://localhost:5000/order/create", { productId: value }, {withCredentials: true})
+      .post(
+        process.env.REACT_APP_API_URL + "/order/create",
+        { productId: value },
+        { withCredentials: true }
+      )
       .then(result => {
         console.log("result", result);
       })
