@@ -8,7 +8,10 @@ function Home() {
       <h3>Expect More. Pay Less</h3>
       
       <section id="hero-container">
-        <h4 id="hero-title">All your favourite brands in one place</h4>
+      </section>
+
+      <section id="catch-ph-container">
+        <h4 id="catch-phrase">All your favourite brands in one place</h4>
       </section>
       
       <div className="category-box" id="box1">

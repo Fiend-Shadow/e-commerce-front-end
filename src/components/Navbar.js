@@ -113,7 +113,7 @@ class Navbar extends Component {
       
 
           </ul>    
-
+          <p></p>
         </div>
       </nav>
     );
