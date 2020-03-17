@@ -8,17 +8,25 @@ function Home() {
       <h3>Expect More. Pay Less</h3>
       
       <section id="hero-container">
-        <h4>All your favourite brands in one place</h4>
+        <h4 id="hero-title">All your favourite brands in one place</h4>
       </section>
       
-      <section className="categories-container">
-        <div className="category-box">
-          
-        </div>
+      <div className="category-box" id="box1">
+          <h4>Sports</h4>          
+      </div>
 
+      <div className="category-box" id="box2">
+          <h4>Beauty</h4>          
+      </div>
 
-      </section>
-      
+      <div className="category-box" id="box3">
+          <h4>House</h4>          
+      </div>
+
+      <div className="category-box" id="box4">
+          <h4>Electronics</h4>          
+      </div>
+
     </div>
   )
 }
