@@ -89,22 +89,33 @@ class SearchPage extends Component {
         {!this.state.isLoading ? (
           this.state.productsMatches.map(prod => {
             return (
-              <div key={prod._id}>
-                <form onSubmit={this.submitProdDetails}>
-                  <h3> {prod.productName} </h3>
 
-                  <img src={prod.img_url} alt="" id="search-img" />
-                  <p>{prod.productPrice}</p>
-                  <button type="submit" value={prod.productName}>
-                    Details
-                  </button>
-                </form>
-                <form onSubmit={this.addToCart}>
-                  <button type="submit" value={prod._id}>
-                    add to cart
-                  </button>
-                </form>
-              </div>
+
+                <div id="container" key={prod._id}>
+                  
+                  <form onSubmit={this.submitProdDetails}>
+                    <div id="card-container">
+                   
+                      <h3> {prod.productName} </h3>
+                      <img src={prod.img_url} alt="" id="search-img" />
+                      <p>{prod.productPrice}</p>
+                      <button type="submit" value={prod.productName}>
+                        Details
+                      </button>
+
+                    </div>            
+                  </form>
+
+                  <form onSubmit={this.addToCart}>
+                    <button type="submit" value={prod._id}>
+                      Add to cart
+                    </button>
+                  </form>
+                </div>
+
+
+
+              
             );
           })
         ) : (

@@ -34,12 +34,12 @@ class SearchBar extends React.Component {
   render () {
     return (
       // <form onSubmit={this.props.productByName(this.state.productName)}>
-         <form id="search-bar-container" onSubmit={this.handleSubmitSearch}>
-        <label>
-          SearchBar:
+      <form id="searchbar-container" onSubmit={this.handleSubmitSearch}>
+        <label className="searchbar-label">
+          <div id="searchbar-title">SearchBar:</div>
           <input type="text" name = "productName" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <button type="submit">search</button>
+        <button type="submit"><img id="search-mag-glass" src="../.././images/search.svg" /></button>
         {/* <Link to ="/searchPage" data={this.props.productByName(this.state.value)}>
         <input type="submit" value="Search" />
         </Link> */}
