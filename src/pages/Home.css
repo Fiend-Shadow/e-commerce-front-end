@@ -6,14 +6,35 @@
   font-family: 'Questrial', sans-serif;
 }
 
+#home-container h1 {
+  margin-top: 60px;
+}
+
+#home-container h3 {
+  margin-top: -22px;
+  font-size: 20px;
+}
+
 #hero-container {
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  background-image: url('../images/hero.jpg');
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  background-blend-mode: color;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0%;
+  background-position-y: bottom;
+}
 
-
+#hero-container h4 {
+  width: 70%;
+  margin-top:  60px;
+  color: antiquewhite;
 }
 
 
