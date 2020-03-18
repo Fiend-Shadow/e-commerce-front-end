@@ -1,0 +1,34 @@
+#login-container {
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+font-family: 'Open Sans', sans-serif;
+font-weight: 300;
+margin-left: 3%;
+margin-right: 3%;
+}
+
+#login-form {
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+#login-btn {
+  color: white;
+  background-color: #010D26;
+  padding: 5px 10px;
+  border-radius: 5px;  
+}
+
+
+/* .button1:hover {
+  color:rgb(156, 183, 218)
+}
+
+#to-cart-btn:hover {
+  color: rgba(242, 213, 196, 0.97);
+} */

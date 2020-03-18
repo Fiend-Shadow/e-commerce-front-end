@@ -1,0 +1,25 @@
+#signup-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  margin-left: 3%;
+  margin-right: 3%;
+  }
+  
+  #signup-form {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  #signup-btn {
+    color: white;
+    background-color: #010D26;
+    padding: 5px 10px;
+    border-radius: 5px;  
+  }

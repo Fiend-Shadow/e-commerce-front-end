@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
+import './Signup.css';
 
 class Signup extends Component {
   state = {
@@ -27,10 +28,10 @@ class Signup extends Component {
   render() {
     const { username, email, password } = this.state;
     return (
-      <div>
+      <div id="signup-container">
         <h1>Sign Up</h1>
 
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit} id="signup-form">
           <label>Username:</label>
           <input
             type="text"
