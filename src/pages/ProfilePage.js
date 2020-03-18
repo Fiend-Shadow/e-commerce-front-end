@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 import axios from "axios";
+import "./ProfilePage.css";
 
 class ProfilePage extends Component {
   state = {
@@ -96,21 +97,26 @@ class ProfilePage extends Component {
             </form>
           </>
         ) : (
-          <div>
-            <h1>ProfilePage</h1>
-            <h2>Welcome Human </h2>
-            <h3>{this.state.user.username}</h3>
-            <p>{this.state.user.email}</p>
+          <div id="profile-page-container">
+
+            <h1>{this.state.user.username}'s profile</h1>
+
+            <h4>{this.state.user.email}</h4>
+            <p>Edit your personal information</p>
             <form onSubmit={this.toggleForm}>
-              <button type="submit">edit</button>
+              <button type="submit" id="edit-profile-btn">edit</button>
             </form>
-            <h3>Past Orders</h3>
+
+            
+            <h3 className="orders-title">Past Orders</h3>
+
             {this.state.orders.map((oneOrder, i) => {
               return (
-                <div>
-                  <h3>order {i + 1} </h3>
+
+                <div className="order-card">
+                  <h3>Order number #{i + 1} </h3>
                   {oneOrder.orderProducts.map(oneProduct => {
-                    return <p>{oneProduct.productInfo.productName}</p>;
+                    return <p>{oneProduct.productInfo.productName}</p>
                   })}
                 </div>
               );
