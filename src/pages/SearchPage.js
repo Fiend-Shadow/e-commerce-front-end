@@ -102,7 +102,7 @@ class SearchPage extends Component {
 
                       <div className="prod-price-row">
                         <p>Price: ${prod.productPrice}</p>
-                        <button type="submit" value={prod.productName}>
+                        <button type="submit" value={prod.productName} className="button1">
                           Details
                         </button>
                       </div>
@@ -111,8 +111,8 @@ class SearchPage extends Component {
                     </div>            
                   </form>
 
-                  <form onSubmit={this.addToCart}>
-                    <button type="submit" value={prod._id}>
+                  <form onSubmit={this.addToCart} className="add-product-form">
+                    <button type="submit" value={prod._id} className="button1" id="to-cart-btn">
                       Add to cart
                     </button>
                   </form>

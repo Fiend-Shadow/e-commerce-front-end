@@ -93,7 +93,7 @@
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #260101;
+  background: #010D26;
 }
 
 #menuToggle input:checked ~ span:nth-last-child(3)
@@ -113,7 +113,7 @@
 #menu button {
   padding:8px 10px;
   border-radius: 5px;
-  background-color: #455159;
+  background-color: #010D26;
   color: rgb(223, 223, 223);
   font-family: 'Open Sans', sans-serif;
   /* letter-spacing: 0,3px; */
