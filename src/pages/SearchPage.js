@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import queryString from "query-string";
-import "./../components/SearchPage.css";
+import "../pages/SearchPage.css";
 
 class SearchPage extends Component {
   state = {
@@ -83,8 +83,9 @@ class SearchPage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Search Results Page</h1>
+      <div className="page-container">
+        <h1 id="search-page-title">Your Search Results</h1>
+        <h3 id="subtitle">Happy Shopping!</h3>
 
         {!this.state.isLoading ? (
           this.state.productsMatches.map(prod => {
@@ -98,10 +99,14 @@ class SearchPage extends Component {
                    
                       <h3> {prod.productName} </h3>
                       <img src={prod.img_url} alt="" id="search-img" />
-                      <p>{prod.productPrice}</p>
-                      <button type="submit" value={prod.productName}>
-                        Details
-                      </button>
+
+                      <div className="prod-price-row">
+                        <p>Price: ${prod.productPrice}</p>
+                        <button type="submit" value={prod.productName}>
+                          Details
+                        </button>
+                      </div>
+                     
 
                     </div>            
                   </form>

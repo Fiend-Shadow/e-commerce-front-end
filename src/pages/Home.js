@@ -7,28 +7,25 @@ function Home() {
       <h1>Shop Mate</h1>
       <h3>Expect More. Pay Less</h3>
       
-      <section id="hero-container">
-      </section>
-
-      <section id="catch-ph-container">
-        <h4 id="catch-phrase">All your favourite brands in one place</h4>
-      </section>
+      <section id="hero-img">
+      </section>      
+      <h4 id="catch-phrase">All your favourite brands in one place</h4>
       
-      <div className="category-box" id="box1">
-          <h4>Sports</h4>          
-      </div>
+      
 
-      <div className="category-box" id="box2">
-          <h4>Beauty</h4>          
-      </div>
+      
+      <div className="category-img" id="box1"></div>
+      <h4 className="category-title">SPORTS</h4>
 
-      <div className="category-box" id="box3">
-          <h4>House</h4>          
-      </div>
 
-      <div className="category-box" id="box4">
-          <h4>Electronics</h4>          
-      </div>
+      <div className="category-img" id="box2"></div>
+      <h4 className="category-title">BEAUTY</h4>
+
+      <div className="category-img" id="box3"></div>
+      <h4 className="category-title">HOUSE</h4>       
+
+      <div className="category-img" id="box4"></div>
+      <h4 className="category-title">ELECTRONICS</h4>
 
     </div>
   )
