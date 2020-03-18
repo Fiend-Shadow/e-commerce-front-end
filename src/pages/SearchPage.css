@@ -22,7 +22,7 @@
   font-size: 20px;
   font-family: 'Merriweather', serif;
   font-weight: 300;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 #card-container {
@@ -38,9 +38,15 @@
   margin-right: auto;
 }
 
+#card-container img {
+  width: 75%;
+}
+
 #card-container h3 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 0px;
 }
 
 .prod-price-row {
@@ -58,7 +64,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 60px;
 }
 
 .button1 {

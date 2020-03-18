@@ -97,8 +97,9 @@ class SearchPage extends Component {
                   <form onSubmit={this.submitProdDetails}>
                     <div id="card-container">
                    
+                      
+                      <img src={prod.img_url} alt="product"/>
                       <h3> {prod.productName} </h3>
-                      <img src={prod.img_url} alt="" id="search-img" />
 
                       <div className="prod-price-row">
                         <p>Price: ${prod.productPrice}</p>
