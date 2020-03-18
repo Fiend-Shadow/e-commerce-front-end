@@ -56,11 +56,11 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
-          <input type="submit" value="Signup" />
+          <input type="submit" value="Signup" id="signup-btn" />
         </form>
 
         <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
+        <Link to={"/login"} id="login-link"> Login</Link>
       </div>
     );
   }

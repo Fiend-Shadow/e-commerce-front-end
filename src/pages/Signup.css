@@ -18,8 +18,21 @@
   }
   
   #signup-btn {
+    margin-top: 10px;
     color: white;
     background-color: #010D26;
     padding: 5px 10px;
     border-radius: 5px;  
+  }
+
+  #signup-btn:hover {
+    color: blanchedalmond;
+  } 
+
+  #signup-link {
+    text-decoration: none;
+    color:#010D26;
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    padding: 5px 10px;  
   }
