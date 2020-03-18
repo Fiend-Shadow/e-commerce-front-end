@@ -26,7 +26,7 @@
   margin-bottom: 0px;
 }
 
-#edit-profile-btn {
+.edit-profile-btn {
   color: white;
   background-color: #010D26;
   padding: 5px 10px;
@@ -34,11 +34,11 @@
 }
 
 #edit-profile-btn:hover {
-  color: blanchedalmond;
+  color: #F2D5BB;
 }
 
 .orders-title {
-  background-color: blanchedalmond;
+  background-color: #F2D5BB;
   margin-top: 60px;
   padding: 10px;
   border-radius: 5px;
@@ -57,4 +57,40 @@
 .order-card h3 {
   margin-top: 30px;
   margin-bottom: 0px;
+}
+
+
+
+
+
+#edit-info-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  margin-left: 3%;
+  margin-right: 3%;
+  }
+
+#edit-info-form {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  margin-bottom: 0px;
+}
+
+#submit-edit {
+  margin-top: 10px;
+}
+
+#cancel-btn {
+  background-color: #F2D5BB;
+  color: #010D26;
 }

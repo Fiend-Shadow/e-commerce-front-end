@@ -69,8 +69,11 @@ class ProfilePage extends Component {
     return (
       <>
         {this.state.showForm ? (
-          <>
-            <form onSubmit={this.editUser}>
+
+          <div id="edit-info-container">
+          
+            <p>Edit your personal information</p>
+            <form onSubmit={this.editUser} id="edit-info-form">
               <input
                 type="text"
                 id="username"
@@ -89,13 +92,14 @@ class ProfilePage extends Component {
                 name="password"
                 placeholder={this.state.user.password}
               />
-              <button type="submit">submit edit</button>
+              <button type="submit" className="edit-profile-btn" id="submit-edit">Submit Edit</button>
             </form>
 
             <form onSubmit={this.toggleForm}>
-              <button>Cancel</button>
+              <button id="cancel-btn">Cancel</button>
             </form>
-          </>
+
+          </div>
         ) : (
           <div id="profile-page-container">
 
@@ -104,7 +108,7 @@ class ProfilePage extends Component {
             <h4>{this.state.user.email}</h4>
             <p>Edit your personal information</p>
             <form onSubmit={this.toggleForm}>
-              <button type="submit" id="edit-profile-btn">edit</button>
+              <button type="submit" className="edit-profile-btn">edit</button>
             </form>
 
             

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import './MyCartPage.css';
 
 class MyCartPage extends Component {
   state = {
@@ -49,7 +50,7 @@ class MyCartPage extends Component {
   render() {
     
     return (
-      <div>
+      <div id="mycartpage-container">
         <h1>MyCartPage</h1>
 
         <h3> Current Orders</h3>

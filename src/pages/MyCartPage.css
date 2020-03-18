@@ -1,0 +1,11 @@
+#mycartpage-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  margin-left: 3%;
+  margin-right: 3%;
+  }
